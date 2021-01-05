@@ -1,0 +1,42 @@
+body {
+  padding: 50px;
+  font-family: "微软雅黑", "Microsoft Yahei", "苹方", "Pingfang SC";
+}
+
+a {
+  color: #00B7FF;
+}
+
+p {
+  display: block;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+#alert {
+  font-size: small;
+}
+
+#avatar {
+  height: 80px;
+  width: 80px;
+}
+
+.avatar {
+  padding: 0;
+}
+
+#userInfo {
+  padding: 30px;
+  background-color: #ffffff;
+}
+
+#userName {
+  font-size: x-large;
+}
+
+#userGroup {
+  font-size: small;
+}

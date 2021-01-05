@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .jumbotron.row
+    .intro-box.col-md-8
+      h1.display-4 避雷针
+      h5.lead 委托避雷辅助工具
+      button.btn.btn-outline-primary 了解详情
+    .userInfo-box.col-md-4
+      .jumbotron.shadow.row#userInfo
+        .avatar.col-4
+          img.rounded-circle.img-fluid.shadow#avatar(src="images/avatar.png", alt="", srcset="")
+        .intro.col-8#intro
+          p#userName 玖叁
+          p#userGroup 普通用户
+          p#zzz 晚上好
+  .search-model
+    h3 避雷查询
+    .alert.alert-primary(role="alert")
+      h5.alert-heading 请注意
+      p#alert 您的登录状态将决定您的查询权限，即信息的显示详细程度。
+      p#alert 当您处于未登录状态时亦可查询，但将仅会显示最重要信息，并且每分钟查询次数将被限制。
+    form
+      .form-group
+        label(for="userQQInput1") 输入欲查询者QQ
+        input.form-control#userQQInput1(type="text" placeholder="在此输入QQ")
+        button.btn.btn-primary(type="submit") 查询
