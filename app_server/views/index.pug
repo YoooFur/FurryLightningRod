@@ -2,18 +2,21 @@ extends layout
 
 block content
   .jumbotron.row
-    .intro-box.col-md-8
+    .intro-box.col-md-7
       h1.display-4 避雷针
       h5.lead 委托避雷辅助工具
       button.btn.btn-outline-primary 了解详情
-    .userInfo-box.col-md-4
+    .userInfo-box.col-md-5
       .jumbotron.shadow.row#userInfo
         .avatar.col-4
           img.rounded-circle.img-fluid.shadow#avatar(src="images/avatar.png", alt="", srcset="")
-        .intro.col-8#intro
+        .intro.col-4#intro
           p#userName 玖叁
           p#userGroup 普通用户
           p#zzz 晚上好
+        .userCtrl.col-4.text-center
+          button.btn.btn-primary 个人中心
+          button.btn.btn-outline-secondry 登出
   .search-model
     h3 避雷查询
     .alert.alert-primary(role="alert")
