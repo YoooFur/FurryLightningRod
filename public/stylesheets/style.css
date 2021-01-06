@@ -1,3 +1,10 @@
+
+@media(max-width:1100px){ html { font-size:50px; } } /*Android常用宽度*/
+/*@media(max-width:480px){ html { font-size:75px; } }		/*Android常用宽度*/
+/*@media(max-width:414px){ html { font-size:64.69px; } }  /*i6Plus,i7Plus宽度*/  
+/*@media(max-width:375px){ html { font-size:58.59px; } }	/*i6,i7宽度*/
+/*@media(max-width:360px){ html { font-size:56.25px; } }	/*Android常用宽度*/
+/*@media(max-width:320px){ html { font-size:50px; } }		/*i5宽度*/
 body {
   padding: 50px;
   font-family: "微软雅黑", "Microsoft Yahei", "苹方", "Pingfang SC";
@@ -15,7 +22,7 @@ p {
   margin-inline-end: 0px;
 }
 
-#alert {
+#alert, #userGroup{
   font-size: small;
 }
 
@@ -24,8 +31,9 @@ p {
   width: 80px;
 }
 
-.avatar {
+.avatar, label {
   padding: 0;
+  margin-bottom: 0;
 }
 
 #userInfo {
@@ -37,6 +45,6 @@ p {
   font-size: x-large;
 }
 
-#userGroup {
-  font-size: small;
+.form-item {
+  padding: 3px;
 }
