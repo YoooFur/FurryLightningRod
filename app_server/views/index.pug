@@ -1,11 +1,14 @@
 extends layout
 
 block content
+  //- 巨幕（头图
   .jumbotron.row
     .intro-box.col-lg-7
       h1.display-4 避雷针
       h5.lead 委托避雷辅助工具
       button.btn.btn-outline-primary.d-none.d-xl-block 了解详情
+
+    //- 用户信息
     .userInfo-box.col-lg-5
       .jumbotron.shadow.row#userInfo
         .avatar.col-4
@@ -15,14 +18,18 @@ block content
           p#userGroup 普通用户
           p#zzz 晚上好
         .userCtrl.col-4.text-center
-          button.btn.btn-primary.btn-block.btn-min.btn-userCtrl 个人中心
-          button.btn.btn-outline-secondary.btn-block.btn-min.btn-userCtrl 登出
+          button.btn.btn-primary.btn-block.btn-min.btn-userCtrl#btn-profile(onclick="j2profile()") 个人中心
+          button.btn.btn-outline-secondary.btn-block.btn-min.btn-userCtrl#btn-logout(onclick="logout()") 登出
   .search-model.container
+
+    //- 查询模块
     h3 避雷查询
     .alert.alert-primary(role="alert")
       strong.alert-heading 请注意
       p#alert 您的登录状态将决定您的查询权限，即信息的显示详细程度。
       p#alert 当您处于未登录状态时亦可查询，但将仅会显示最重要信息，并且每分钟查询次数将被限制。
+
+    //- 查询表单
     form
       .form-group.container
        .row.text-justify.align-items-center
@@ -32,4 +39,4 @@ block content
           input.col-lg-12.form-control.col-lg-8#userQQInput1(type="text" placeholder="在此输入QQ")
         .col-lg-1.form-item
         .col-lg-2.form-item
-          button.btn.btn-primary.btn-block(type="submit") 查询
+          button.btn.btn-primary.btn-block(type="submit" onclick="submit_search()") 查询

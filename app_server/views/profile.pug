@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    link(rel="stylesheet", href="/stylesheets/profile.css")
+    .row
+        //- 嵌套还是用了原版html XD
+        <h3><i class="fa fa-angle-left btn-back" aria-hidden="true" onclick="j2index()"></i>    个人信息设置</h3>
+    hr
+
+    //- 个人信息（头像位
+    .container
+        .row
+            .col-lg-8.col-xs-12
+                dl
+                    label.db#profile-nick(for="userProfilNick") 昵称（建议使用圈名）
+                    input.dc.form-control#profile-nick-input(type="text" value="玖叁")
+                dl
+                    label.db#profile-name(for="userProfilName") 用户名（用于登录）
+                    input.dc.form-control#profile-name-input(type="text" value="colour93")
+                dl
+                    label.db#profile-email(for="userProfilEmail") 邮箱
+                    input.dc.form-control#profile-email-input(type="text" value="colour_93@furry.top")
+                dl
+                    label.db#profile-QQ(for="userProfilQQ") QQ
+                    input.dc.form-control#profile-name-QQ(type="text" value="1285419578")
+            .col-lg-4.col-xs-12
+                dt
+                    img.rounded-circle.img-fluid.shadow#profile-avatar(src="images/avatar.png", alt="", srcset="")
+                    button.btn.btn-outline-primary.btn-block.d-none.d-xl-block.db#btn-avatar(type='submit') 编辑头像
+                    button.btn.btn-primary.btn-block.db#btn-save(type='submit') 保存
+    
