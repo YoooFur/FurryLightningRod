@@ -53,10 +53,18 @@ const search = (req, res) => {
     res.render('search', {title: '查询 - 避雷针'});
 };
 
+
+//查询 请求
+const search_api = (req, res) => {
+    res.render('search_api', {title: '查询 - 避雷针'});
+};
+
+
 //写完模块别忘导出
 module.exports = {
     index,
     space,
     profile,
     search,
+    search_api,
 }

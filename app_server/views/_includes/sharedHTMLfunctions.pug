@@ -53,3 +53,22 @@ mixin outputAvatarHD(id)
       - const aPath = "avatars/" + id + ".jpg"
       - const bPath = "avatars/hd/" + id + ".jpg"
       img.rounded-circle.img-fluid.shadow#profile-avatar(src=aPath, alt="", srcset="")
+
+mixin outputWelcome()
+      - let a = "";
+      - var time = new Date().getHours();
+      - if (time<=5||time>=17){
+      p 晚上好
+      - }
+      - if (time<=8&&time>=6){
+      p 早上好
+      - }
+      - if (time<=11&&time>=9){
+      p 上午好
+      - }
+      - if (time<=13&&time>=12){
+      p 中午好
+      - }
+      - if (time<=16&&time>=14){
+      p 下午好
+      - }

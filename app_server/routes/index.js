@@ -13,6 +13,6 @@ router.get('/profile', ctrlMain.profile)
 
 //查询
 router.get('/search', ctrlMain.search)
-router.get('/search/:target_qq', ctrlMain.search)
+router.get('/search/:target_qq', ctrlMain.search_api)
 
 module.exports = router;
