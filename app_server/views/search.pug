@@ -1,5 +1,15 @@
 extends layout
 
 block content
-
- h1 开发中……
+    link(rel="stylesheet", href="stylesheets/search_bar.css")
+    a h1 避雷针
+    
+    .row
+        .col-lg-2
+        .col-lg-8
+                #container
+                    .search.barx
+                        form
+                            input.am-input(type="text" placeholder="在此键入查询QQ...")
+                            button.am-btn(type="submit")
+        .col-lg-2

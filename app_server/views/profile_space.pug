@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    link(rel="stylesheet", href="/stylesheets/profile.css")
+    .row
+        //- 嵌套还是用了原版html XD
+        h3
+            i.fa.fa-angle-left.btn-back(aria-hidden="true" onclick="j2index()")
+        h3!= userInfo.nick
+    hr
+
+    //- 个人信息（头像位
+    .container
+        .row
+            .col-lg-8.col-xs-12
+                dl
+                    h4 用户组
+                    label.db
+                        +outputGroupName(userInfo.group)
+                    +outputGroupIntro(userInfo.group)
+
+            .col-lg-4.col-xs-12
+                dt
+                    +outputAvatarHD(userInfo.id)
+                    button.btn.btn-outline-primary.btn-block.db#btn-avatar(onclick = "j2profile()") 编辑信息
+    

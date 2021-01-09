@@ -1,0 +1,55 @@
+mixin outputGroupName(group)
+      - if (group === "normal") {
+            p 普通用户
+      -}if (group === "guest") {
+            p 游客
+      -}if (group === "painter") {
+            p 画师
+      -}if (group === "mange-painter") {
+            p 审核画师
+      -}
+
+mixin outputGroupIntro(group)
+      - if (group === "normal"){
+            .alert.alert-info(role="alert")
+                  strong.alert-heading 权限说明
+                  p#alert 您拥有以下权限
+                  p#alert 查询 画师 的状态
+                  p#alert 查询 普通用户 的状态
+                  p#alert 提交对 画师 的举报
+                  p#alert 当 画师 处于黑名单时 可以查询有关事件
+      -}if (group === "guest"){
+            .alert.alert-primary(role="alert")
+                  strong.alert-heading 权限说明
+                  p#alert 您拥有以下权限
+                  p#alert 查询 画师 的状态
+                  p#alert 查询 普通用户 的状态
+      -}if (group === "painter"){
+            .alert.alert-success(role="alert")
+                  strong.alert-heading 权限说明
+                  p#alert 您拥有以下权限
+                  p#alert 查询 画师 的状态
+                  p#alert 查询 普通用户 的状态
+                  p#alert 提交对 画师 的举报
+                  p#alert 提交对 普通用户 的举报
+                  p#alert 当 画师 处于黑名单时 可以查询有关事件
+                  p#alert 当 普通用户 处于黑名单或超过3次进入黑名单时 可以查询有关事件
+      -}if (group === "mange-painter"){
+            .alert.alert-dark(role="alert")
+                  strong.alert-heading 权限说明
+                  p#alert 您拥有以下权限
+                  p#alert 查询 所有用户 详细事件
+                  p#alert 处理 举报 申请
+                  p#alert 提交对 黑名单 的操作申请
+      -}
+            
+   
+mixin outputAvatar(id)
+      - const aPath = "avatars/" + id + ".jpg"
+      - const bPath = "avatars/hd/" + id + ".jpg"
+      img.rounded-circle.img-fluid.shadow#avatar(src=aPath, alt="", srcset="")
+
+mixin outputAvatarHD(id)
+      - const aPath = "avatars/" + id + ".jpg"
+      - const bPath = "avatars/hd/" + id + ".jpg"
+      img.rounded-circle.img-fluid.shadow#profile-avatar(src=aPath, alt="", srcset="")

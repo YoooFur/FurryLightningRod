@@ -66,4 +66,13 @@
 
     
 
+    /** 这里是搜索栏的 **/
+    .am-input {
+        height: 8rem;
+    }
+    .am-btn{
+        height: 8rem;
+        width: 6rem;
+    }
+
 }
