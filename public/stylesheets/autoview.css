@@ -1,0 +1,82 @@
+@media (max-width: 1200px) {
+    
+    /** 这都是common的 **/
+
+    .container {
+        max-width: 100%;
+    }
+
+    .jumbotron {
+        margin: 0.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .alert {
+        margin-top: 2rem;
+    }
+
+    .jumbotron, .alert, .form-control {
+        border-radius: 1rem;
+    }
+
+	h1, .h1, .display-4 {
+        font-size: 6.5rem;
+	}
+	h2, .h2 {
+	    font-size: 5rem;
+	}
+	h3, .h3 {
+	    font-size: 4.8rem;
+	}
+	h4, .h4 {
+	    font-size: 4.1rem;
+    }
+    h5, .h5, .lead, .alert-heading {
+        font-size: 3.7rem;
+    }
+	p, .p, span, .span, #alert, .form-control, label{
+	    font-size: 2.5rem;
+    }
+
+    button, .btn {
+        border-radius: 1.25rem;
+        font-size: 3.5rem;
+        width: 100%;
+        height: 9rem;
+    }
+
+    .btn-min {
+        font-size: 2rem;
+    }
+
+    .userInfo-box {
+        padding-top: 3rem;
+    }
+    
+    #userName {
+        font-size: 3rem;
+    }
+
+    #userGroup {
+        font-size: 2.5rem;
+    }
+
+    #zzz {
+        font-size: 2.7rem;
+    }
+
+    #avatar {
+        height: 18vw;
+        width: 18vw;
+    }
+    
+    .btn-userCtrl {
+        height: 6rem;
+    }
+
+   
+    
+    /** 这里是profile的 **/
+
+
+}
