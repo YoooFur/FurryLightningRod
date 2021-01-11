@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
-const uri = 'mongodb://test:test@192.168.31.245/test'
+const uri = require('./keys').dbURI
 
 mongoose.connect(uri, {
     useNewUrlParser: true,
+    useCreateIndex: true,
     //useUnifiedTopology: true
 }, function(err){
     if(err){
@@ -14,10 +15,16 @@ mongoose.connect(uri, {
 
 
 const User = mongoose.model('User', new mongoose.Schema({
-    username: { type: String },
-    password: { type: String }
+    username: { type: String, unique: true},
+    password: {
+        type: String,
+        set(val){
+            return require('bcryptjs').hashSync(val, 10)
+        }
+    }
 }))
 
+// User.db.dropCollection('users')
 
 module.exports = {
     User
