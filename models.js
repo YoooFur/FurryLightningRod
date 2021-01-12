@@ -14,15 +14,22 @@ mongoose.connect(uri, {
 })
 
 
+// users集合 数据模型
+
 const User = mongoose.model('User', new mongoose.Schema({
-    username: { type: String, unique: true},
+    username: { type: String, unique: true },
     password: {
         type: String,
         set(val){
             return require('bcryptjs').hashSync(val, 10)
         }
-    }
+    },
+    nick: { type: String },
+    group: { type: String },
+    email: { type: String, unique: true },
+    QQ: { type: String, unique: true }
 }))
+
 
 // User.db.dropCollection('users')
 

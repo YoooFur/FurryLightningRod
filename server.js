@@ -1,7 +1,7 @@
 const { User } = require('./models')
 const express = require('express')
 const jwt = require('jsonwebtoken')
-const SECRET = require('./keys').SECRET
+const config = require('./keys')
 
 const port = 3001
 
@@ -16,6 +16,7 @@ app.get('/', async(req, res) => {
 
 
 // 枚举列表
+
 app.get('/api/users', async(req, res) => {
     const users = await User.find()
     res.send(users)
@@ -23,6 +24,7 @@ app.get('/api/users', async(req, res) => {
 
 
 // 注册
+
 app.post('/api/register', async(req, res) => {
     console.log(req.body)
     const user = await User.create({
@@ -34,6 +36,7 @@ app.post('/api/register', async(req, res) => {
 
 
 // 登录
+
 app.post('/api/login', async(req, res) => {
     const user = await User.findOne({
         username: req.body.username
@@ -55,28 +58,34 @@ app.post('/api/login', async(req, res) => {
     // token
     const token = jwt.sign({
         _id: String(user._id),
-    }, SECRET)
+    }, config.SECRET)
     res.send({
         user,
         token
     })
 })
 
+
 // auth中间件
+
 const auth = async(req, res, next) => {
     const raw = String(req.headers.authorization).split(' ').pop()
-    const { _id } = jwt.verify(raw, SECRET)
+    const { _id } = jwt.verify(raw, config.SECRET)
     req.user = await User.findById(_id)
     next()
 }
 
+
 // GET用户资料
+
 app.get('/api/profile', auth, async(req, res) => {
     res.send(req.user)
 })
 
+
 //监听
+
 app.listen(port, () => {
     console.log('API服务已启动，监听端口:'+port)
-    console.log('SECRET:'+SECRET)
+    console.log('SECRET:'+config.SECRET)
 })
