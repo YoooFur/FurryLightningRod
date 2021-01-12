@@ -9,10 +9,16 @@ var debug = require('debug')('blz:server');
 var http = require('http');
 
 /**
+ * 导入参数
+ */
+
+const config = require('../config')
+
+/**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || config.listenPort);
 app.set('port', port);
 
 /**
@@ -88,3 +94,10 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+/**
+ * 输出
+ */
+
+console.log('前端服务已启动，监听端口:'+config.listenPort)
+console.log('API地址:'+config.APIURL)

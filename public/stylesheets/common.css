@@ -57,3 +57,7 @@ p {
 .btn-back {
   cursor: pointer;
 }
+
+h1 {
+  cursor: pointer;
+}

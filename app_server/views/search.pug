@@ -1,20 +1,21 @@
 extends layout
 
 block content
-    link(rel="stylesheet", href="stylesheets/search_bar.css")
-    script(src="javascripts/flr.js")
+    link(rel="stylesheet", href="/stylesheets/search_bar.css")
+    script(src="/javascripts/flr.js")
     block searchMain
 
 
     .container#auto-m
-        h1.display-3.text-center 避雷针
+        h1.display-3.text-center(onclick="j2index()") 避雷针
         h3.lead.text-center 约稿避雷辅助工具
         .row
             .col-lg-2
             .col-lg-8
                 #container
                     .search.barx
-                        form
-                            input(type="text" placeholder="在此键入查询QQ...")
-                            button(type="submit")
+                        form(action="/search" method="" id="searchForm")
+                            +outputSearchBarInput(resBody)
+                            button(onclick="search()")
+                    +outputSearchResult(resBody)
             .col-lg-2

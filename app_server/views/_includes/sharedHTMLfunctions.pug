@@ -72,3 +72,49 @@ mixin outputWelcome()
       - if (time<=16&&time>=14){
       p 下午好
       - }
+
+mixin outputSearchBarInput(data)
+      - if (!data){
+      input(type="text" placeholder="在此键入查询QQ..." id="QQInput" name="target")
+      - } else {
+      input(type="text" placeholder="在此键入查询QQ..." value!= data.QQ id="QQInput" name="target")
+      - }
+
+mixin outputSearchResult(data)
+      - if (!data) {
+      .container
+      - } else {
+      - if (data.s==="查无此人"){
+      .container
+            .alert.alert-success(role="alert")
+                  h4.alert-heading 查无此人
+                  p 该QQ号没有威胁或本站尚未收录，请谨慎操作。
+                  a(href="../../report/"+data.QQ) 举报
+      - } else {
+      - if (data.level===999) {
+      .container
+            .alert.alert-dark(role="alert")
+                  h4.alert-heading!= data.name
+                  p 当你凝视深渊，深渊也在凝视你。
+      - }
+      - if (data.level<=2) {
+      .container
+            .alert.alert-warning(role="alert")
+                  h4.alert-heading!= data.name
+                  p!= "QQ：" + data.QQ
+                  p!= "严重等级：" + data.level
+                  p!= "录入日期：" + data.addDate
+                  p!= "原因：" + data.reason
+                  a(href="../../remove/"+data.QQ) 申诉
+      - }
+      - if (data.level===3) {
+      .container
+            .alert.alert-danger(role="alert")
+                  h4.alert-heading!= data.name
+                  p!= "QQ：" + data.QQ
+                  p!= "严重等级：" + data.level
+                  p!= "录入日期：" + data.addDate
+                  p!= "原因：" + data.reason
+                  a(href="../../remove/"+data.QQ) 申诉
+      - }}}
+

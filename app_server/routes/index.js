@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
-const ctrlMain = require('../controllers/main');
+var express = require('express')
+var router = express.Router()
+const ctrlMain = require('../controllers/main')
 
 //根
-router.get('/', ctrlMain.index);
+router.get('/', ctrlMain.index)
 
 //个人主页
 router.get('/space', ctrlMain.space)
@@ -12,7 +12,7 @@ router.get('/space', ctrlMain.space)
 router.get('/profile', ctrlMain.profile)
 
 //查询
-router.get('/search', ctrlMain.search)
-router.get('/search/:target_qq', ctrlMain.search_api)
+router.get('/search', ctrlMain.renderSearch)
+router.get('/search/:QQ', ctrlMain.search_api)
 
 module.exports = router;
