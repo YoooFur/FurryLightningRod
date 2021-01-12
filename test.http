@@ -4,14 +4,20 @@
 ### 查看所有用户
 get {{url}}/users
 
+### 删除所有用户
+delete {{url}}/delete
+
 
 ### 注册
 post {{url}}/register
 {{json}}
 
 {
-    "username": "test22q13",
-    "password": "123456"
+    "username": "93",
+    "password": "123456",
+    "nick": "test",
+    "QQ": "1285419578",
+    "email": "123@qq.com"
 }
 
 
@@ -20,11 +26,37 @@ post {{url}}/login
 {{json}}
 
 {
-    "username": "test22q13",
+    "username": "93",
     "password": "123456"
 }
 
 
 ### 个人信息
 get {{url}}/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZjNjZjOTllMDkxNzBhMDA1OGJmMmEiLCJpYXQiOjE2MTAzNzg0Mzd9.WFYEMH0dP-TV_60SgbR6o-vJQvVh05bNnMN4uPhbqug
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZkNDcyNTc5NjM1YzBmMDQ0NTZmZTEiLCJpYXQiOjE2MTA0MzQzNjR9.pIrUD_johyMHm-k93VzLUzfP_gKcQaBvPWkENibsiQU
+
+
+### 列黑名单
+get {{url}}/list/all
+
+### 查黑名单
+post {{url}}/list
+{{json}}
+
+{
+    "QQ": "1914644780"
+}
+
+### 加黑名单
+post {{url}}/list/add
+{{json}}
+
+{
+    "QQ": "1285419578",
+    "name": "玖叁",
+    "level": 1,
+    "reason": "咕咕咕时间过长"
+}
+
+### 清空黑名单
+delete {{url}}/list/clear
