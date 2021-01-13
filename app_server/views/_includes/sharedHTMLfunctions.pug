@@ -73,11 +73,25 @@ mixin outputWelcome()
       p 下午好
       - }
 
-mixin outputSearchBarInput(data)
+mixin outputSearchNav(enter)
+      - if (enter==='b'){
+      nav.nav.nav-pills.flex-column.flex-sm-row
+            a.flex-sm-fill.text-sm-center.nav-link.active(href="/search") 黑名单查询
+            a.flex-sm-fill.text-sm-center.nav-link.disabled(href="/model-search") 模板信息查询（敬请期待）
+      - }
+      - if (enter==='m'){
+      nav.nav.nav-pills.flex-column.flex-sm-row
+            a.flex-sm-fill.text-sm-center.nav-link(href="/search") 黑名单查询
+            a.flex-sm-fill.text-sm-center.nav-link.active(href="/model-search") 模板信息查询
+      - }
+
+mixin outputSearchBarInput(enter, data)
+      - if (enter==='b'){var ph = "在此键入查询QQ..."}
+      - if (enter==='m'){var ph ="在此键入查询查询信息..."}
       - if (!data){
-      input(type="text" placeholder="在此键入查询QQ..." id="QQInput" name="target")
+      input(type="text" placeholder!= ph name="target")
       - } else {
-      input(type="text" placeholder="在此键入查询QQ..." value!= data.QQ id="QQInput" name="target")
+      input(type="text" placeholder!= ph value!= data.QQ name="target")
       - }
 
 mixin outputSearchResult(data)
@@ -117,4 +131,4 @@ mixin outputSearchResult(data)
                   p!= "原因：" + data.reason
                   a(href="../../remove/"+data.QQ) 申诉
       - }}}
-
+      

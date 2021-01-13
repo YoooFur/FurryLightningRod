@@ -1,0 +1,15 @@
+html
+  head
+    title= title
+    include _includes/sharedHTMLfunctions
+    link(rel="stylesheet", href="/stylesheets/user.css", attr)
+  body
+    .login
+        h2 用户登录
+        .login_box
+            input(type="text" required="required")
+            label 用户名 / 邮箱
+        .login_box
+            input(type="password" required="required")
+            label 密码
+            

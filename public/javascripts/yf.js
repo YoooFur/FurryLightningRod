@@ -1,21 +1,14 @@
 // YoooFur+ JS v0.0.1~
 
-const { search } = require("../../app_server/controllers/main")
+// const { search } = require("../../app_server/controllers/search")
 
 //小程序
 
-function j2profile() {
-    window.location.href = "/profile"
+function j2where(where){
+    window.location.href = where
 }
 
-function j2space() {
-    window.location.href = "/space"
-}
-
-function j2index() {
-    window.location.href = "/"
-}
-
-function j2search() {
-    window.location.href = "/search"
+function search(id){
+    const val = document.getElementById(id).value
+    window.location.href = '/search?target=' + val
 }

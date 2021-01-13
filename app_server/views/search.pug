@@ -7,15 +7,16 @@ block content
 
 
     .container#auto-m
-        h1.display-3.text-center(onclick="j2index()") 避雷针
+        h1.display-3.text-center(onclick="j2where('/')") 避雷针
         h3.lead.text-center 约稿避雷辅助工具
         .row
             .col-lg-2
             .col-lg-8
+                +outputSearchNav(enter)
                 #container
                     .search.barx
                         form(action="/search" method="" id="searchForm")
-                            +outputSearchBarInput(resBody)
+                            +outputSearchBarInput(enter, resBody)
                             button(onclick="search()")
                     +outputSearchResult(resBody)
             .col-lg-2
