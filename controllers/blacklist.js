@@ -10,6 +10,7 @@ const config = require('../keys')
 const listAll = (async(req, res) => {
     const items = await BlackList.find()
     res.send(items)
+    // console.log(BlackList.estimatedDocumentCount())
 })
 
 // 查询黑名单
@@ -34,6 +35,7 @@ const search = (async(req, res) => {
 const add = (async(req, res) => {
     console.log(req.body)
     const item = await BlackList.create({
+        // id: new BlackList.count,
         QQ: req.body.QQ,
         name: req.body.name,
         level: req.body.level,

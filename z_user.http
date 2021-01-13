@@ -1,0 +1,37 @@
+@url=http://192.168.31.245:3001/api
+@json=Content-Type: application/json
+
+### 查看所有用户
+get {{url}}/users
+
+### 删除所有用户
+delete {{url}}/delete
+
+
+### 注册
+post {{url}}/register
+{{json}}
+
+{
+    "username": "93",
+    "password": "123456",
+    "nick": "test",
+    "QQ": "1285419578",
+    "email": "123@qq.com"
+}
+
+
+### 登录
+post {{url}}/login
+{{json}}
+
+{
+    "username": "93",
+    "password": "123456"
+}
+
+
+### 个人信息
+get {{url}}/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZlNjI1MmU0NWI3YTFiNmI1ODQ2NDYiLCJpYXQiOjE2MTA1MDY4Mzl9.eBo72lhfnjfRmJBzWktA5K9udqfpKQcgovlfAdkvJC4
+

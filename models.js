@@ -24,6 +24,7 @@ const User = mongoose.model('User', new mongoose.Schema({
         },
         required: true
     },
+    // id : { type: Number, unique: true , required: true },
     active: { type: Boolean, require: true },
     nick: { type: String, required: true },
     group: { type: String, required: true },
@@ -35,6 +36,7 @@ const User = mongoose.model('User', new mongoose.Schema({
 
 // blacklist集合 数据模型
 const BlackList = mongoose.model('BlackList', new mongoose.Schema({
+    // id : { type: Number, unique: true , required: true },
     QQ: { type: String, unique: true, required:true },
     name: { type: String, required: true },
     level: { type: Number, required: true },

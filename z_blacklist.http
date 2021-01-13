@@ -1,0 +1,28 @@
+@url=http://localhost:3001/api
+@json=Content-Type: application/json
+
+
+### 列黑名单
+get {{url}}/list/all
+
+### 查黑名单
+post {{url}}/list
+{{json}}
+
+{
+    "QQ": "1914644780"
+}
+
+### 加黑名单
+post {{url}}/list/add
+{{json}}
+
+{
+    "QQ": "1285419578",
+    "name": "玖叁",
+    "level": 1,
+    "reason": "咕咕咕时间过长"
+}
+
+### 清空黑名单
+delete {{url}}/list/clear
