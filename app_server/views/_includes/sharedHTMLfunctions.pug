@@ -45,13 +45,13 @@ mixin outputGroupIntro(group)
             
    
 mixin outputAvatar(id)
-      - const aPath = "avatars/" + id + ".jpg"
-      - const bPath = "avatars/hd/" + id + ".jpg"
+      - const aPath = "http://api.deadlist.top:3001/avatars/" + id + ".jpg"
+      - const bPath = "http://api.deadlist.top:3001/avatars/hd/" + id + ".jpg"
       img.rounded-circle.img-fluid.shadow#avatar(src=aPath, alt="", srcset="")
 
 mixin outputAvatarHD(id)
-      - const aPath = "avatars/" + id + ".jpg"
-      - const bPath = "avatars/hd/" + id + ".jpg"
+      - const aPath = "http://api.deadlist.top:3001/avatars/" + id + ".jpg"
+      - const bPath = "http://api.deadlist.top:3001/avatars/hd/" + id + ".jpg"
       img.rounded-circle.img-fluid.shadow#profile-avatar(src=aPath, alt="", srcset="")
 
 mixin outputWelcome()

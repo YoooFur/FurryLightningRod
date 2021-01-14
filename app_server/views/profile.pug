@@ -4,7 +4,7 @@ block content
     link(rel="stylesheet", href="/stylesheets/profile.css")
     .row
         //- 嵌套还是用了原版html XD
-        <h3><i class="fa fa-angle-left btn-back" aria-hidden="true" onclick="j2index()"></i>    个人信息设置</h3>
+        <h3><i class="fa fa-angle-left btn-back" aria-hidden="true" onclick="j2where('/')"></i>    个人信息设置</h3>
     hr
 
     //- 个人信息（头像位
@@ -25,7 +25,7 @@ block content
                     input.dc.form-control#profile-name-QQ(type="text" value = userInfo.QQ)
             .col-lg-4.col-xs-12
                 dt
-                    +outputAvatarHD(userInfo.id)
+                    +outputAvatarHD(userInfo._id)
                     button.btn.btn-outline-primary.btn-block.d-none.d-xl-block.db#btn-avatar(type='submit') 编辑头像
                     button.btn.btn-primary.btn-block.db#btn-save(type='submit') 保存
     

@@ -2,6 +2,7 @@ extends layout
 
 block content
   //- 巨幕（头图
+  script(src="/javascripts/index.js")
   .jumbotron.row
     .intro-box.col-lg-7
       h1.display-4 避雷针
@@ -9,22 +10,23 @@ block content
       button.btn.btn-outline-primary.d-none.d-xl-block 了解详情
     //- 用户信息
     .userInfo-box.col-lg-5
-        .jumbotron.row.shadow#userInfo
-          //- .avatar.col-4
-          //-   +outputAvatar(userInfo.id)
-          //- .intro.col-4#intro
-          //-   strong#userName!= userInfo.nick
-          //-   p#userGroup 
-          //-     +outputGroupName(userInfo.group)
-          //-   p#zzz
-          //-     +outputWelcome()
-          //- .userCtrl.col-4.text-center
-          //-   button.btn.btn-primary.btn-block.btn-min.btn-userCtrl#btn-profile(onclick="j2where('/space')") 个人中心
-          //-   button.btn.btn-outline-secondary.btn-block.btn-min.btn-userCtrl#btn-logout(onclick="j2where('/logout')") 登出
-          .h3.col-8.text-center 您好，请登录~
-          .userCtrl.col-4.tex-center
-            button.btn.btn-primary.btn-block.btn-min.btn-userCtrl#btn-profile(onclick="j2where('/login')") 登录
-            button.btn.btn-secondary.btn-block.btn-min.btn-userCtrl#btn-profile(onclick="j2where('/register')") 注册
+      .jumbotron.row.shadow#userInfo.login-box.d-none
+        .avatar.col-4
+          +outputAvatar(userInfo._id)
+        .intro.col-4#intro
+          strong#userName!= userInfo.nick
+          p#userGroup 
+            +outputGroupName(userInfo.group)
+          p#zzz
+            +outputWelcome()
+        .userCtrl.col-4.text-center
+          button.btn.btn-primary.btn-block.btn-min.btn-userCtrl#btn-profile(onclick="j2where('/space')") 个人中心
+          button.btn.btn-outline-secondary.btn-block.btn-min.btn-userCtrl#btn-logout(onclick="logout()") 登出
+      .jumbotron.row.shadow#userInfo.no-login-box
+        .h3.col-8.text-center 您好，请登录~
+        .userCtrl.col-4.tex-center
+          button.btn.btn-primary.btn-block.btn-min.btn-userCtrl#btn-profile(onclick="j2where('/login')") 登录
+          button.btn.btn-secondary.btn-block.btn-min.btn-userCtrl#btn-profile(onclick="j2where('/register')") 注册
 
             
   .search-model

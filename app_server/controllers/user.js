@@ -17,7 +17,7 @@ const login = (req, res) => {
 //注册
 const register = (req, res) => {
     res.render('user',{
-        title: '登录 - 避雷针',
+        title: '注册 - 避雷针',
         enter: 'register'
     })
 }

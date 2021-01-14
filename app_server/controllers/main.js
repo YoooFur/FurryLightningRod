@@ -1,24 +1,34 @@
 //环境
 const { response } = require('express')
+const { token } = require('morgan')
 const request = require('request')
+const auth = require('../controllers/auth')
 const apiOptions = {
     server: require('../../config').APIURL
+}
+const nullUser = {
+    _id: "0",
+    nick: "0",
+    username: "0",
+    group: "guest",
+    email: "0",
+    QQ: "0",
 }
 
 //首页 请求
 const index = (req, res) => {
-    res.render('index', {
-        title: '避雷针 - 委托避雷辅助工具',
-        userInfo: {
-            id: "0001",
-            nick: "玖叁",
-            username: "colour93",
-            group: "normal",
-            email: "colour_93@furry.top",
-            QQ: "1285419578",
-        }
-
-    })
+    if(!req.cookies.token){
+        res.render('index',{
+            title:'避雷针 - 约稿避雷辅助工具',
+            userInfo: nullUser
+        })
+    }else{
+        console.log(req.user)
+        res.render('index',{
+            title: '避雷针 - 约稿避雷辅助工具',
+            userInfo: req.user
+        })
+    }
 }
 
 

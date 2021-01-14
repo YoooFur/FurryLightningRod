@@ -1,15 +1,17 @@
 html
   head
     title= title
-    include _includes/sharedHTMLfunctions
+    include _includes/userCtrl
     link(rel="stylesheet", href="/stylesheets/user.css", attr)
+    script(src="/javascripts/normal/jquery.min.js")
+    script(src="/javascripts/log.js")
   body
     .login
-        h2 用户登录
-        .login_box
-            input(type="text" required="required")
-            label 用户名 / 邮箱
-        .login_box
-            input(type="password" required="required")
-            label 密码
-            
+        +outputUserCtrlTitle(enter)
+        .alert.alert-danger.d-none.error(role="alert")
+          +outputUserCtrlAlertError(enter)
+        .alert.alert-success.d-none.success(role="alert")
+          +outputUserCtrlAlertSuccess(enter)
+        .form
+          +outputUserCtrlForm(enter)
+          +outputUserCtrlButton(enter)
