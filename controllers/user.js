@@ -41,6 +41,7 @@ const register = (async(req,res) => {
 
 // 登录
 const login = (async(req,res) => {
+    console.log(req.body)
     const user = await User.findOne({
         username: req.body.username
     })

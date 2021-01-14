@@ -1,17 +1,28 @@
 const mongoose = require('mongoose')
 const uri = require('./keys').dbURI
 
-mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    //useUnifiedTopology: true
-}, function(err){
-    if(err){
-        console.log('数据库连接失败');
-    }else{
-        console.log('数据库连接成功');
-    }
-})
+
+const dbConnect = function() {
+    console.log('正在连接数据库...')
+    console.log('URI:'+uri)
+    mongoose.connect(uri, {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        //useUnifiedTopology: true
+    }, function(err){
+        if(err){
+            console.log('数据库连接失败')
+            console.log('30秒后重新连接')
+            setTimeout(dbConnect,30000)
+        }else{
+            console.log('数据库连接成功')
+        }
+    })
+}
+
+
+// 连接数据库
+dbConnect()
 
 
 // users集合 数据模型
