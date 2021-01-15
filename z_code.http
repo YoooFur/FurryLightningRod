@@ -1,0 +1,19 @@
+@url=http://localhost:3001/api
+@json=Content-Type: application/json
+
+### 列码表
+get {{url}}/mail/get
+
+### 清空
+delete {{url}}/mail/clear
+
+### 请求
+post {{url}}/mail/send
+{{json}}
+
+{
+    "email": "colour_93@furry.top"
+}
+
+###
+get {{url}}/test

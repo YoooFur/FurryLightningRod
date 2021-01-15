@@ -38,9 +38,10 @@ const User = mongoose.model('User', new mongoose.Schema({
     // id : { type: Number, unique: true , required: true },
     active: { type: Boolean, require: true },
     nick: { type: String, required: true },
+    avatarPath: { type: String, required: true },
     group: { type: String, required: true },
     email: { type: String, unique: true, required: true },
-    QQ: { type: String, unique: true, required: true },
+    QQ: { type: String, required: true },
     lastLogon: { type: Date },
     regDate: { type: Date, required: true }
 }))
@@ -56,8 +57,16 @@ const BlackList = mongoose.model('BlackList', new mongoose.Schema({
     addDate: { type: Date, required: true }
 }))
 
+// verifycode集合 数据模型（这tmd
+const VerifyCode = mongoose.model('VerifyCode', new mongoose.Schema({
+    id: { type: String, unique: true, required: true },
+    code: { type: String, required: true },
+    email: { type: String, required: true }
+}))
+
 
 module.exports = {
     User,
-    BlackList
+    BlackList,
+    VerifyCode
 }

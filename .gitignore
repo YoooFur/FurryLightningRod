@@ -62,3 +62,7 @@ typings/
 
 # SECRET
 keys.js
+
+# static files
+files
+public/avatars

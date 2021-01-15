@@ -9,6 +9,8 @@ const config = require('./keys')
 const userCtrl = require('./controllers/user')
 const listCtrl = require('./controllers/blacklist')
 const sendCode = require('./controllers/mailcode')
+const uploadAvatar = require('./controllers/upload_avatar')
+const middle = require('./controllers/middle')
 
 const port = 3001
 
@@ -19,9 +21,10 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cookieParser())
+app.use(express.static('files'))
+
 
 // cors跨域配置
-
 app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With, Current-Page');
@@ -46,22 +49,30 @@ app.get('/', async(req, res) => {
 app.get('/api/users', userCtrl.getUers)
 
 // 注册
-app.post('/api/register', userCtrl.register)
+app.post('/api/777/register', userCtrl.add)
+app.post('/api/register', middle.reg, async(req, res) => {
+    userCtrl.register(req, res)
+})
 
 // 登录
 app.post('/api/login', userCtrl.login)
 
 // GET用户资料
-app.get('/api/profile', userCtrl.auth, async(req, res) => {
+app.get('/api/profile', middle.auth, async(req, res) => {
     res.send(req.user)
     console.log(req.user)
 })
 
+// 上传头像
+app.post('/api/upload/avatar', uploadAvatar.upload)
+
+// 更新用户资料
+app.post('/api/profile/update', middle.authx, async(req, res) => {
+    userCtrl.update(req, res)
+})
+
 // 删除所有用户
 app.delete('/api/delete', userCtrl.clear)
-
-// 发送验证码测试
-app.get('/api/sendcode', sendCode.codeSend)
 
 
 
@@ -80,6 +91,29 @@ app.post('/api/list/add', listCtrl.add)
 // 清空
 app.delete('/api/list/clear', listCtrl.clear)
 
+
+
+//==============验证码操作==================
+
+
+// 发送验证码测试
+app.post('/api/mail/send', sendCode.codeSend)
+
+// 验证验证码
+app.post('/api/mail/verify', sendCode.codeVerify)
+
+// 获取码表
+app.get('/api/mail/get', sendCode.get)
+
+// 清空
+app.delete('/api/mail/clear', sendCode.del)
+
+
+// test
+// const { User } = require('./models')
+// app.get('/api/test', async(req, res) => {
+//     console.log(req.cookies)
+// })
 
 
 // 监听
