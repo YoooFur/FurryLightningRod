@@ -26,6 +26,13 @@ block content
             .col-lg-4.col-xs-12
                 dt
                     +outputAvatarHD(userInfo._id)
-                    button.btn.btn-outline-primary.btn-block.d-none.d-xl-block.db#btn-avatar(type='submit') 编辑头像
+                    form.d-none#editAvatar()
+                        .custom-file
+                            input.form-control.custom-file-input#file1(type="file" name="avatar" onchange="uploadAvatar()")
+                            label.custom-file-lavel(for="file1") 选择文件
+                            input(type="submit")
+                    button.btn.btn-outline-primary.btn-block.d-none.d-xl-block.db#btn-avatar(onclick='showEditAvatar()') 编辑头像
                     button.btn.btn-primary.btn-block.db#btn-save(type='submit') 保存
+
+                    //- action="http://api.furrylightningrod.com:3001/api/upload/avatar" method="post" enctype="multipart/form-data"
     

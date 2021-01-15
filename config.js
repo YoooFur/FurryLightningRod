@@ -6,7 +6,7 @@ const listenPort = 3000
 
 // API地址
 // const APIURL = 'api.deadlist.fun:3001'
-const APIURL = 'http://localhost:3001/api'
+const APIURL = 'http://api.furrylightningrod.com:3001/api'
 
 module.exports = {
     listenPort,

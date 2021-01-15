@@ -4,54 +4,39 @@ mixin outputUserCtrlTitle(enter)
       - }
       - if (enter==="register"){
       h2 用户注册
-      - }
-
-mixin outputUserCtrlAlertError(enter)
-      - if (enter==="login"){
-      p#alert 用户名或密码错误
-      - }
-      - if (enter==="register"){
-      p#alert 用户名或邮箱已存在
-      - }
-
-mixin outputUserCtrlAlertSuccess(enter)
-      - if (enter==="login"){
-      p#alert 登录成功，正在跳转...
-      - }
-      - if (enter==="register"){
-      p#alert 注册成功，正在跳转...
+      h4 请注意：以下均为必填字段
       - }
 
 mixin outputUserCtrlForm(enter)
       - if (enter==="login"){
         .login_box
-            input#username(type="text" required="required")
+            input#username(type="text" required="required" name="username")
             label 用户名 / 邮箱
         .login_box
-            input#password(type="password" required="required")
+            input#password(type="password" required="required" name="password")
             label 密码
       - }
       - if (enter==="register"){
-         .login_box
-            input.username(type="text" required="required")
+         .login_box.username
+            <input id="username" type="text" required="required" name="username" onkeyup="this.value=this.value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
             label 用户名（用于登录，仅限英文与数字）
-         .login_box
-            input.nick(type="text" required="required")
+         .login_box.nick
+            input#nick(type="text" required="required" name="nick")
             label 昵称（建议使用圈名）
-         .login_box
-            input.email(type="text" required="required")
+         .login_box.email
+            input#email(type="text" required="required" name="email")
             label 邮箱
-         .login_box.d-none
-            input.email_code(type="text" required="required")
+         .login_box.email_code.d-none
+            input#email_code(type="text" required="required" name="code")
             label 邮箱验证码
-         .login_box.d-none
-            input.QQ(type="text" required="required")
+         .login_box.QQ.d-none
+            <input id="QQ" type="text" required="required" name="QQ" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
             label QQ
-         .login_box.d-none
-            input.password(type="password" required="required")
+         .login_box.password.d-none
+            input#password(type="password" required="required" name="password")
             label 密码
-         .login_box.d-none
-            input.d-password(type="password" required="required")
+         .login_box.d-password.d-none
+            input#d-password(type="password" required="required" name="password")
             label 确认密码
       - }
 
@@ -60,7 +45,7 @@ mixin outputUserCtrlButton(enter)
             button(onclick="login()") 登录
         - }
         - if (enter==="register"){
-            button.send(onclick="sendEmail()") 发送邮箱验证码
+            button.send(onclick="sendEmail()") 发送邮箱验证码
             button.verify.d-none(onclick="verify()") 验证
             button.register.d-none(onclick="register()") 注册
         -}

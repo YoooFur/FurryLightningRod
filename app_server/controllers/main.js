@@ -9,6 +9,7 @@ const apiOptions = {
 const nullUser = {
     _id: "0",
     nick: "0",
+    avatarPath: "0.jpg",
     username: "0",
     group: "guest",
     email: "0",

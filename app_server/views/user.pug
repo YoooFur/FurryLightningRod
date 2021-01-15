@@ -2,16 +2,14 @@ html
   head
     title= title
     include _includes/userCtrl
-    link(rel="stylesheet", href="/stylesheets/user.css", attr)
+    link(rel="stylesheet", href="/stylesheets/log.css", attr)
     script(src="/javascripts/normal/jquery.min.js")
     script(src="/javascripts/log.js")
   body
     .login
         +outputUserCtrlTitle(enter)
-        .alert.alert-danger.d-none.error(role="alert")
-          +outputUserCtrlAlertError(enter)
-        .alert.alert-success.d-none.success(role="alert")
-          +outputUserCtrlAlertSuccess(enter)
+        .alert.alert-success.d-none(role="alert")
+          p#alert
         .form
           +outputUserCtrlForm(enter)
           +outputUserCtrlButton(enter)
