@@ -2,6 +2,7 @@ extends layout
 
 block content
     link(rel="stylesheet", href="/stylesheets/profile.css")
+    script(src="/javascripts/profile.js")
     .row
         //- 嵌套还是用了原版html XD
         <h3><i class="fa fa-angle-left btn-back" aria-hidden="true" onclick="j2where('/')"></i>    个人信息设置</h3>
@@ -18,21 +19,21 @@ block content
                     label.db#profile-name(for="userProfilName") 用户名（用于登录）
                     input.dc.form-control#profile-name-input(type="text" value = userInfo.username)
                 dl
-                    label.db#profile-email(for="userProfilEmail") 邮箱
-                    input.dc.form-control#profile-email-input(type="text" value = userInfo.email)
+                    label.db#profile-email(for="userProfilEmail") 邮箱（暂不支持更新）
+                    input.dc.form-control#profile-email-input(type="text" disabled="true" value = userInfo.email)
                 dl
                     label.db#profile-QQ(for="userProfilQQ") QQ
-                    input.dc.form-control#profile-name-QQ(type="text" value = userInfo.QQ)
+                    input.dc.form-control#profile-QQ-input(type="text" value = userInfo.QQ)
             .col-lg-4.col-xs-12
                 dt
-                    +outputAvatarHD(userInfo._id)
+                    +outputAvatarHD(userInfo.avatarPath)
                     form.d-none#editAvatar()
                         .custom-file
                             input.form-control.custom-file-input#file1(type="file" name="avatar" onchange="uploadAvatar()")
                             label.custom-file-lavel(for="file1") 选择文件
                             input(type="submit")
                     button.btn.btn-outline-primary.btn-block.d-none.d-xl-block.db#btn-avatar(onclick='showEditAvatar()') 编辑头像
-                    button.btn.btn-primary.btn-block.db#btn-save(type='submit') 保存
+                    button.btn.btn-primary.btn-block.db#btn-save(onclick='saveProfile()') 保存
 
                     //- action="http://api.furrylightningrod.com:3001/api/upload/avatar" method="post" enctype="multipart/form-data"
     

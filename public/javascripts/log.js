@@ -26,7 +26,7 @@ function login() {
             $('div.alert').addClass('alert-success')
             $('div.alert').removeClass('d-none')
             $('p#alert').html('登录成功，正在跳转...')
-            document.cookie="token="+data.token
+            $.cookie('token',data.token,{ domain: '.furrylightningrod.com', path: '/' })
             setTimeout(function(){window.location.href='/'},1500);
         }
     })

@@ -18,10 +18,14 @@ router.get('/login', ctrlUser.login)
 router.get('/register', ctrlUser.register)
 
 //个人主页
-router.get('/space', ctrlMain.space)
+router.get('/space', auth, async(req, res) => {
+    ctrlMain.space(req, res)
+})
 
 //个人信息修改
-router.get('/profile', ctrlMain.profile)
+router.get('/profile', auth, async(req, res) => {
+    ctrlMain.profile(req, res)
+})
 
 //查询（传参第三个 m代表模板查询 b代表黑名单查询
 router.get('/search', function(req, res) {

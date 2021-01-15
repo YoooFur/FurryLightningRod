@@ -12,7 +12,7 @@ block content
     .userInfo-box.col-lg-5
       .jumbotron.row.shadow#userInfo.login-box.d-none
         .avatar.col-4
-          +outputAvatar(userInfo._id)
+          +outputAvatar(userInfo.avatarPath)
         .intro.col-4#intro
           strong#userName!= userInfo.nick
           p#userGroup 

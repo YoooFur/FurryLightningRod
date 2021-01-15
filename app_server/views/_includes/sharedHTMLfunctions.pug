@@ -7,6 +7,8 @@ mixin outputGroupName(group)
             p 画师
       -}if (group === "mange-painter") {
             p 审核画师
+      -}if (group === "test-group") {
+            p 内测成员
       -}
 
 mixin outputGroupIntro(group)
@@ -41,17 +43,23 @@ mixin outputGroupIntro(group)
                   p#alert 查询 所有用户 详细事件
                   p#alert 处理 举报 申请
                   p#alert 提交对 黑名单 的操作申请
+      -}if (group === "test-group"){
+            .alert.alert-dark(role="alert")
+                  strong.alert-heading 权限说明
+                  p#alert 您拥有以下权限
+                  p#alert 对 黑名单 的所有操作
+                  p#alert 再次感谢您对避雷针项目的支持与贡献
       -}
             
    
-mixin outputAvatar(id)
-      - const aPath = "http://api.deadlist.top:3001/avatars/" + id + ".jpg"
-      - const bPath = "http://api.deadlist.top:3001/avatars/hd/" + id + ".jpg"
+mixin outputAvatar(avatarPath)
+      - const aPath = "http://api.furrylightningrod.com:3001/avatar/" + avatarPath
+      - const bPath = "http://api.furrylightningrod.com:3001/avatar/hd/" + avatarPath
       img.rounded-circle.img-fluid.shadow#avatar(src=aPath, alt="", srcset="")
 
-mixin outputAvatarHD(id)
-      - const aPath = "http://api.deadlist.top:3001/avatars/" + id + ".jpg"
-      - const bPath = "http://api.deadlist.top:3001/avatars/hd/" + id + ".jpg"
+mixin outputAvatarHD(avatarPath)
+      - const aPath = "http://api.furrylightningrod.com:3001/avatar/" + avatarPath
+      - const bPath = "http://api.furrylightningrod.com:3001/avatar/hd/" + avatarPath
       img.rounded-circle.img-fluid.shadow#profile-avatar(src=aPath, alt="", srcset="")
 
 mixin outputWelcome()
