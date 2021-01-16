@@ -72,7 +72,7 @@ app.post('/api/profile/update', middle.authx, async(req, res) => {
 })
 
 // 删除所有用户
-app.delete('/api/delete', userCtrl.clear)
+// app.delete('/api/delete', userCtrl.clear)
 
 
 
@@ -80,13 +80,22 @@ app.delete('/api/delete', userCtrl.clear)
 
 
 // 枚举
-app.get('/api/list/all', listCtrl.listAll)
+app.get('/api/list/all', middle.authb, async(req, res) => {
+    listCtrl.listAll(req, res)
+})
 
 // 查询
 app.post('/api/list', listCtrl.search)
 
-// 添加（直接
-app.post('/api/list/add', listCtrl.add)
+// 添加
+app.post('/api/list/add', middle.authxb, async(req, res) => {
+    listCtrl.add(req, res)
+})
+
+// 刷新操作员信息
+app.post('/api/list/update/opreatorName', middle.authxb, async(req, res) => {
+    listCtrl.updateOpreatorName(req, res)
+})
 
 // 清空
 app.delete('/api/list/clear', listCtrl.clear)

@@ -92,18 +92,30 @@ const login = (async(req,res) => {
 // 更新用户信息
 const update = async(req, res) => {
     const nuser = req.body
+    let updateUser
     console.log(nuser)
-    const updateUser = await User.findOneAndUpdate({
-        _id:req.user._id
-    },{
-        username: nuser.username,
-        nick: nuser.nick,
-        QQ: nuser.QQ,
-        avatarPath: nuser.avatarPath
-    },{
-        new: true
+    if(!nuser.avatarPath){
+        updateUser = await User.findOneAndUpdate({
+            _id:req.user._id
+        },{
+            username: nuser.username,
+            nick: nuser.nick,
+            QQ: nuser.QQ
+        },{
+            new: true
+        })
+    }else{
+        updateUser = await User.findOneAndUpdate({
+            _id:req.user._id
+        },{
+            username: nuser.username,
+            nick: nuser.nick,
+            QQ: nuser.QQ,
+            avatarPath: nuser.avatarPath
+        },{
+            new: true
+        })
     }
-    )
     res.send(updateUser)
 }
 

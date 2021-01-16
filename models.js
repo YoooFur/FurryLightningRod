@@ -54,6 +54,8 @@ const BlackList = mongoose.model('BlackList', new mongoose.Schema({
     level: { type: Number, required: true },
     reason: { type: String, required: true },
     imagePath: { type: String },
+    opreator: { type: Object, required:true },
+    opreatorName: { type: String },
     addDate: { type: Date, required: true }
 }))
 
