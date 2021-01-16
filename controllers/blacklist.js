@@ -34,20 +34,24 @@ const search = (async(req, res) => {
 // 添加黑名单
 const add = (async(req, res) => {
     console.log(req.body)
-    if(await BlackList.findOne({QQ:req.body.QQ})){
-        res.status(422).send({message: '黑名单已存在，如果需要添加原因，请联系玖叁'})
+    if(!req.body.QQ||!req.body.name||!req.body.level||!req.body.reason){
+        res.status(422).send({message: '请将信息填写完全'})
     }else{
-        const item = await BlackList.create({
-            // id: new BlackList.count,
-            QQ: req.body.QQ,
-            name: req.body.name,
-            level: req.body.level,
-            reason: req.body.reason,
-            opreator: req.user._id,
-            opreatorName: req.user.nick,
-            addDate: new Date()
-        })
-        res.send({message: '操作成功完成'})
+        if(await BlackList.findOne({QQ:req.body.QQ})){
+            res.status(422).send({message: '黑名单已存在，如果需要添加原因，请联系玖叁'})
+        }else{
+            const item = await BlackList.create({
+                // id: new BlackList.count,
+                QQ: req.body.QQ,
+                name: req.body.name,
+                level: req.body.level,
+                reason: req.body.reason,
+                opreator: req.user._id,
+                opreatorName: req.user.nick,
+                addDate: new Date()
+            })
+            res.send({message: '操作成功完成'})
+        }
     }
 })
 
