@@ -1,0 +1,37 @@
+button {
+    margin: 0.25rem;
+}
+.row {
+    align-items: center;
+}
+
+@media(max-width:1200px) {
+
+    table {
+        margin-top: 1.2rem;
+        font-size: 2.8em;
+    }
+    
+    tr {
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+    }
+
+    .modal.fade#maddOneMoadl{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .btn-xq {
+        font-size: 2.7rem;
+    }
+}
+
+td {
+    vertical-align: middle;
+    /*设置表格文字在一行显示*/
+    text-overflow:ellipsis;
+    word-break:keep-all; 
+    white-space:nowrap;
+}

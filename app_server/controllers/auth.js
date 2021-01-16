@@ -12,24 +12,27 @@ const apiOptions = {
 const auth = async(req, res, next) => {
     console.log(req.cookies.token)
     if(req.cookies.token){
-    const requestOptions = {
-        url: apiOptions.server + '/profile',
-        method: 'GET',
-        auth: {
-            bearer: req.cookies.token
-        }
-    }
-    request(
-        requestOptions,
-        (err, response, body) => {
-            result(JSON.parse(body))
-        }
-    )
-    const result = (Jbody) => {
-        req.user = Jbody
-        console.log(req.user)
-        next()
-    }}else{next()}
+        if(req.cookies.token!=null){
+            const requestOptions = {
+                url: apiOptions.server + '/profile',
+                method: 'GET',
+                auth: {
+                    bearer: req.cookies.token
+                }
+            }
+            request(
+                requestOptions,
+                (err, response, body) => {
+                    result(JSON.parse(body))
+                }
+            )
+            const result = (Jbody) => {
+                req.user = Jbody
+                console.log(req.user)
+                next()
+            }
+        }else{next()}
+    }else{next()}
 }
 
 

@@ -30,6 +30,6 @@ dt {
     vertical-align: middle;
 }
 
-#btn-avatar, #btn-save {
-    margin-top: 1.5rem;
+#btn-avatar, #btn-save, #btn-x {
+    margin-top: 1.25rem;
 }

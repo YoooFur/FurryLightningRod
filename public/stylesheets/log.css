@@ -126,3 +126,26 @@ h4 {
 .d-none {
 	display: none !important;
 }
+
+@media (max-width: 1200px) {
+
+	.d-xl-none {
+		display: none !important;
+	}
+
+	.d-xl-block {
+		display: block !important;
+	}
+
+}
+@media (min-width: 1200px) {
+
+	.d-xl-none {
+		display: block !important;
+	}
+
+	.d-xl-block {
+		display: none !important;
+	}
+
+}

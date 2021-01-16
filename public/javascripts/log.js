@@ -27,7 +27,7 @@ function login() {
             $('div.alert').removeClass('d-none')
             $('p#alert').html('登录成功，正在跳转...')
             $.cookie('token',data.token,{ domain: '.furrylightningrod.com', path: '/' })
-            setTimeout(function(){window.location.href='/'},1500);
+            window.location.href='/'
         }
     })
 }
@@ -139,7 +139,7 @@ function register() {
             $('button').removeAttr('disabled','false')
             localStorage.removeItem('reg_token')
             document.cookie="token="+data.token
-            setTimeout(function(){window.location.href='/'},1500);
+            window.location.href='/'
 
         }
     })

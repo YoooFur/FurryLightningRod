@@ -11,16 +11,17 @@ function search(id) {
     window.location.href = '/search?target=' + val
 }
 
+function report(id) {
+    const val = document.getElementById(id).value
+    window.location.href = '/report?target=' + val
+}
+
 function logout() {
-    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+    $.cookie('token','',{ expires: 0, domain: '.furrylightningrod.com', path: '/' })
     location.reload()
 }
 
-function showEditAvatar() {
-    $('form#editAvatar').removeClass('d-none')
-    $('button#btn-avatar').addClass('d-none')
-    $('button#btn-avatar').removeClass('d-xl-block')
-}
+
 
 // function test() {
 //     alert($.cookie("token"))

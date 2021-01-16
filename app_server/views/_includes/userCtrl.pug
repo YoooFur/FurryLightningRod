@@ -49,3 +49,58 @@ mixin outputUserCtrlButton(enter)
             button.verify.d-none(onclick="verify()") 验证
             button.register.d-none(onclick="register()") 注册
         -}
+
+//- =========
+
+mixin outputMUserCtrlTitle(enter)
+      - if (enter==="login"){
+      <h3><i class="fa fa-angle-left btn-back" aria-hidden="true" onclick="j2where('/')"></i>    登录</h3>
+      - }
+      - if (enter==="register"){
+      <h3><i class="fa fa-angle-left btn-back" aria-hidden="true" onclick="j2where('/')"></i>    注册</h3>
+      - }
+
+mixin outputMUserCtrlForm(enter)
+      - if (enter==="login"){
+      br
+      .form-group
+         label(for="username") 用户名
+         input.form-control#username(type="text" required="required" name="username")
+      .form-group
+         label(for="password") 密码
+         input.form-control#password(type="password" required="required" name="password")
+      - }
+      - if (enter==="register"){
+      br
+      .form-group.username
+         label(for="username") 用户名（用于登录，仅限英文与数字）
+         <input class="form-control" id="username" type="text" required="required" name="username" onkeyup="this.value=this.value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+      .form-group.nick
+         label(for="nick") 昵称（建议使用圈名）
+         input.form-control#nick(type="text" required="required" name="nick")
+      .form-group.email
+         label(for="email") 邮箱
+         input.form-control#email(type="text" required="required" name="email")
+      .form-group.email_code.d-none
+         label(for="email_code") 邮箱验证码
+         input.form-control#email_code(type="text" required="required" name="code")
+      .form-group.QQ.d-none
+         label(for="QQ") QQ
+         <input class="form-control" id="QQ" type="text" required="required" name="QQ" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+      .form-group.password.d-none
+         label(for="password") 密码
+         input.form-control#password(type="password" required="required" name="password")
+      .form-group.d-password.d-none
+         label(for="d-password") 确认密码
+         input.form-control#d-password(type="password" required="required" name="password")
+      - }
+
+mixin outputMUserCtrlButton(enter)
+        - if (enter==="login"){
+            button.btn.btn-primary(onclick="login()") 登录
+        - }
+        - if (enter==="register"){
+            button.btn.btn-primary.send(onclick="sendEmail()") 发送邮箱验证码
+            button.btn.btn-primary.verify.d-none(onclick="verify()") 验证
+            button.btn.btn-primary.register.d-none(onclick="register()") 注册
+        -}

@@ -2,6 +2,11 @@
     
     /** 这都是common的 **/
 
+    /* 反馈 */
+    #feedback {
+        font-size:2.5rem;
+    }
+
     .container {
         max-width: 100%;
     }
@@ -38,15 +43,19 @@
 	    font-size: 2.5rem;
     }
 
+    #welcome-text{
+        font-size: 3rem;
+    }
+
     button, .btn {
         border-radius: 1.25rem;
         font-size: 3.5rem;
         width: 100%;
-        height: 9rem;
+        height: 8rem;
     }
 
     .btn-min {
-        font-size: 2rem;
+        font-size: 2.25rem;
     }
 
     .userInfo-box {

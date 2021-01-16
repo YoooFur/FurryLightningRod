@@ -3,7 +3,8 @@ var router = express.Router()
 const cookieParser = require('cookie-parser')
 const ctrlMain = require('../controllers/main')
 const ctrlSearch = require('../controllers/search')
-const ctrlUser = require('../controllers/user')
+const ctrlUser = require('../controllers/log')
+const ctrlMange = require('../controllers/mange')
 const auth = require('../controllers/auth').auth
 
 router.use(cookieParser())
@@ -16,6 +17,8 @@ router.get('/', auth, async(req, res) => {
 //用户登录注册
 router.get('/login', ctrlUser.login)
 router.get('/register', ctrlUser.register)
+router.get('/mlogin', ctrlUser.mlogin)
+router.get('/mregister', ctrlUser.mregister)
 
 //个人主页
 router.get('/space', auth, async(req, res) => {
@@ -25,6 +28,11 @@ router.get('/space', auth, async(req, res) => {
 //个人信息修改
 router.get('/profile', auth, async(req, res) => {
     ctrlMain.profile(req, res)
+})
+
+//内测管理页面
+router.get('/mange', auth, async(req, res) => {
+    ctrlMange.mange(req, res)
 })
 
 //查询（传参第三个 m代表模板查询 b代表黑名单查询

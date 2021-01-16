@@ -19,7 +19,7 @@ const nullUser = {
 
 //渲染页面
 const renderPage = (req, res, page, title) => {
-    if(!req.cookies.token){
+    if(!req.cookies.token||req.cookies.token==='null'){
         res.render(page,{
             title: title,
             userInfo: nullUser

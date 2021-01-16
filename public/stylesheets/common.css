@@ -1,3 +1,8 @@
+/* 反馈链接 */
+#feedback {
+  text-decoration:none;
+}
+
 .fix{
   margin: 0;
   border: 0;
@@ -40,6 +45,13 @@ p {
 #userInfo {
   padding: 30px;
   background-color: #ffffff;
+  display: flex;
+}
+
+.welcome-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #userName {

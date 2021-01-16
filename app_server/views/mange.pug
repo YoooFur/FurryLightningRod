@@ -1,0 +1,124 @@
+extends layout
+block content
+    link(rel="stylesheet", href="/stylesheets/mange.css", attr)
+    link(rel="stylesheet", href="/stylesheets/normal/fs-modal.css", attr)
+    script(src="/javascripts/mange.js")
+    .row
+        //- 嵌套还是用了原版html XD
+        <h3><i class="fa fa-angle-left btn-back" aria-hidden="true" onclick="j2where('/space')"></i>    管理页面</h3>
+    hr
+    .row
+        h4.col-5.col-lg-2.text-line 黑名单记录
+        .col-7.col-lg-6
+            .row
+                button.d-none.d-lg-block.col-5.col-lg-3.btn.btn-outline-primary(data-toggle="modal" data-target="#addOneMoadl") 添加
+                button.d-block.d-lg-none.col-5.col-lg-3.btn.btn-outline-primary(data-toggle="modal" data-target="#maddOneMoadl") 添加
+                button.col-5.col-lg-3.btn.btn-outline-info 搜索
+                button.d-none.d-xl-block.col-lg-3.btn.btn-primary.disabled(onclick="updateOpreatorName()") 刷新操作员信息
+        //- span.badge.badge-secondary.align-top 3
+    .d-none.d-lg-block
+        table.table
+            thead
+            tr
+                th#tQQ(scope="col") QQ
+                th#tName(scope="col") 名字
+                th#tLevel(scope="col") 等级
+                th#tReason(scope="col") 原因
+                //- th#tReason(scope="col") 详情
+                th#Opreator(scope="col") 操作员
+                //- th(scope="col") ID
+            tbody#aj_data
+    .d-block.d-lg-none
+        table.table
+            thead
+            tr
+                th#tQQ(scope="col") QQ
+                th#tName(scope="col") 名字
+                th#tLevel(scope="col") 等级
+                th#xq(scope="col") 详情
+            tbody#ajm_data
+    //-添加 模态框
+    .modal.fade#addOneMoadl(tabindex="-1" role="add" aria-labelledby="addOneModal" aria-hidden="true")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h5.modal-title#addOneModal 添加黑名单
+                    button.close(type="button" data-dismiss="modal" aria-label="Close")
+                .modal-body
+                    form
+                        //- 第一项是返回值信息，用作提示
+                        .form-group.d-none#returnMessage
+                            .alert#returnAlert
+                                strong.alert-heading#returnAlertHeading
+                        //- 后面的就都是表单信息了
+                        .form-group
+                            .input-group
+                                .input-group-prepend
+                                    span.input-group-text#QQ-input QQ
+                                input.form-control#QQ-text(type="text" aria-describedby="QQ-input")
+                        .form-group
+                            .input-group
+                                .input-group-prepend
+                                    span.input-group-text#name-input 名字
+                                input.form-control#name-text(type="text" aria-describedby="name-input")
+                        .form-group
+                            .input-group
+                                .input-group-prepend
+                                    label.input-group-text(for="level-select") 严重等级
+                                select.custom-select#level-select
+                                    option(selected) 选择等级...
+                                    option(value="1") 1 - 轻微
+                                    option(value="2") 2 - 中等
+                                    option(value="3") 3 - 严重
+                        .form-group
+                            .input-group
+                                .input-group-prepend
+                                    span.input-group-text#reason-input 原因
+                                textarea.form-control#reason-text(type="text" aria-describedby="reason-input")
+                .modal-footer
+                    button.btn.btn-secondary(type="button" data-dismiss="modal") 关闭
+                    button.btn.btn-primary(type="button" onclick="addOne()") 添加
+    //- 移动端 模态框
+    .modal.modal-fullscreen#maddOneMoadl(tabindex="-1" role="add" aria-labelledby="maddOneModal" aria-hidden="true")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h5.modal-title#maddOneModal 添加黑名单
+                    button.close(type="button" data-dismiss="modal" aria-label="Close")
+                .modal-body
+                    form
+                        //- 第一项是返回值信息，用作提示
+                        .form-group.d-none#returnMessage
+                            .alert#returnAlert
+                                strong.alert-heading#returnAlertHeading
+                        //- 后面的就都是表单信息了
+                        .form-group
+                            .input-group
+                                .input-group-prepend
+                                    span.input-group-text#QQ-input QQ
+                                input.form-control#mQQ-text(type="text" aria-describedby="QQ-input")
+                        .form-group
+                            .input-group
+                                .input-group-prepend
+                                    span.input-group-text#name-input 名字
+                                input.form-control#mname-text(type="text" aria-describedby="name-input")
+                        .form-group
+                            .input-group
+                                .input-group-prepend
+                                    label.input-group-text(for="level-select") 严重等级
+                                select.custom-select#mlevel-select
+                                    option(selected) 选择等级...
+                                    option(value="1") 1 - 轻微
+                                    option(value="2") 2 - 中等
+                                    option(value="3") 3 - 严重
+                        .form-group
+                            .input-group
+                                .input-group-prepend
+                                    span.input-group-text#reason-input 原因
+                                textarea.form-control#mreason-text(type="text" aria-describedby="reason-input")
+                .modal-footer
+                    .row
+                        .col-1
+                        button.col-5.btn.btn-secondary(type="button" data-dismiss="modal") 关闭
+                        button.col-5.btn.btn-primary(type="button" onclick="addOne('m')") 添加
+                        .col-1

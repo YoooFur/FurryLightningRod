@@ -5,13 +5,19 @@ block content
     script(src="/javascripts/profile.js")
     .row
         //- 嵌套还是用了原版html XD
-        <h3><i class="fa fa-angle-left btn-back" aria-hidden="true" onclick="j2where('/')"></i>    个人信息设置</h3>
+        <h3><i class="fa fa-angle-left btn-back" aria-hidden="true" onclick="j2where('/space')"></i>    个人信息设置</h3>
     hr
 
     //- 个人信息（头像位
     .container
         .row
             .col-lg-8.col-xs-12
+                .alert.alert-info.d-none(role="alert")
+                    strong.alert-heading 上传成功
+                .alert.alert-success.d-none(role="alert")
+                    strong.alert-heading 操作成功
+                .alert.alert-danger.d-none(role="alert")
+                    strong.alert-heading 操作失败
                 dl
                     label.db#profile-nick(for="userProfilNick") 昵称（建议使用圈名）
                     input.dc.form-control#profile-nick-input(type="text" value = userInfo.nick)
@@ -32,7 +38,7 @@ block content
                             input.form-control.custom-file-input#file1(type="file" name="avatar" onchange="uploadAvatar()")
                             label.custom-file-lavel(for="file1") 选择文件
                             input(type="submit")
-                    button.btn.btn-outline-primary.btn-block.d-none.d-xl-block.db#btn-avatar(onclick='showEditAvatar()') 编辑头像
+                    button.btn.btn-outline-primary.btn-block.db#btn-avatar(onclick='showEditAvatar()') 编辑头像
                     button.btn.btn-primary.btn-block.db#btn-save(onclick='saveProfile()') 保存
 
                     //- action="http://api.furrylightningrod.com:3001/api/upload/avatar" method="post" enctype="multipart/form-data"

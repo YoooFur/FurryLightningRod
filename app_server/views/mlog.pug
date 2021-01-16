@@ -1,0 +1,12 @@
+extends layout
+block content
+    link(rel="stylesheet", href="/stylesheets/mlog.css", attr)
+    script(src="/javascripts/log.js")
+    include _includes/userCtrl
+    .login
+      +outputMUserCtrlTitle(enter)
+      .alert.alert-success.d-none(role="alert")
+        p#alert
+      .form
+        +outputMUserCtrlForm(enter)
+        +outputMUserCtrlButton(enter)

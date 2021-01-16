@@ -9,6 +9,8 @@ mixin outputGroupName(group)
             p 审核画师
       -}if (group === "test-group") {
             p 内测成员
+      -}if (group === "admin") {
+            p 管理员
       -}
 
 mixin outputGroupIntro(group)
@@ -49,6 +51,10 @@ mixin outputGroupIntro(group)
                   p#alert 您拥有以下权限
                   p#alert 对 黑名单 的所有操作
                   p#alert 再次感谢您对避雷针项目的支持与贡献
+      -}if (group === "admin"){
+            .alert.alert-dark(role="alert")
+                  strong.alert-heading 权限说明
+                  p#alert 您是最垃圾的
       -}
             
    
@@ -97,9 +103,9 @@ mixin outputSearchBarInput(enter, data)
       - if (enter==='b'){var ph = "在此键入查询QQ..."}
       - if (enter==='m'){var ph ="在此键入查询查询信息..."}
       - if (!data){
-      input(type="text" placeholder!= ph name="target")
+      <input type="text" name="target" placeholder=#{ph} onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
       - } else {
-      input(type="text" placeholder!= ph value!= data.QQ name="target")
+      <input type="text" name="target" placeholder=#{ph} value=#{data.QQ} onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
       - }
 
 mixin outputSearchResult(data)
@@ -140,3 +146,7 @@ mixin outputSearchResult(data)
                   a(href="../../remove/"+data.QQ) 申诉
       - }}}
       
+mixin outputXbtn(group)
+      - if (group==="test-group"){
+      button.btn.btn-success.btn-block.db#btn-x(onclick="t2mange()") 管理页面
+      - }

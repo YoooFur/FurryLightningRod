@@ -2,12 +2,10 @@ extends layout
 
 block content
     link(rel="stylesheet", href="/stylesheets/profile.css")
-    script(src="/javascripts/profile.js")
+    script(src="/javascripts/profile_space.js")
     .row
         //- 嵌套还是用了原版html XD
-        h3
-            i.fa.fa-angle-left.btn-back(aria-hidden="true" onclick="j2where('/')")
-        h3!= userInfo.nick
+        <h3><i class="fa fa-angle-left btn-back" aria-hidden="true" onclick="j2where('/')"></i>    #{userInfo.nick}</h3>
     hr
 
     //- 个人信息（头像位
@@ -23,5 +21,6 @@ block content
             .col-lg-4.col-xs-12
                 dt
                     +outputAvatarHD(userInfo.avatarPath)
+                    +outputXbtn(userInfo.group)
                     button.btn.btn-outline-primary.btn-block.db#btn-avatar(onclick="j2where('/profile')") 编辑信息
     
