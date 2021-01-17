@@ -1,4 +1,4 @@
-const api_uri = 'https://api.furrylightningrod.com:2999/api'
+const api_uri = 'https://api.furrylightningrod.com:29999/api'
 
 function login() {
     const username = document.getElementById('username').value
