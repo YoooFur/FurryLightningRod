@@ -59,13 +59,13 @@ mixin outputGroupIntro(group)
             
    
 mixin outputAvatar(avatarPath)
-      - const aPath = "https://api.furrylightningrod.com:3001/avatar/" + avatarPath
-      - const bPath = "https://api.furrylightningrod.com:3001/avatar/hd/" + avatarPath
+      - const aPath = "http://api.furrylightningrod.com:3001/avatar/" + avatarPath
+      - const bPath = "http://api.furrylightningrod.com:3001/avatar/hd/" + avatarPath
       img.rounded-circle.img-fluid.shadow#avatar(src=aPath, alt="", srcset="")
 
 mixin outputAvatarHD(avatarPath)
-      - const aPath = "https://api.furrylightningrod.com:3001/avatar/" + avatarPath
-      - const bPath = "https://api.furrylightningrod.com:3001/avatar/hd/" + avatarPath
+      - const aPath = "http://api.furrylightningrod.com:3001/avatar/" + avatarPath
+      - const bPath = "http://api.furrylightningrod.com:3001/avatar/hd/" + avatarPath
       img.rounded-circle.img-fluid.shadow#profile-avatar(src=aPath, alt="", srcset="")
 
 mixin outputWelcome()

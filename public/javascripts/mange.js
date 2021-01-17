@@ -1,6 +1,6 @@
 // mange.js
 
-const api_uri = 'https://api.furrylightningrod.com:3001/api'
+const api_uri = 'http://api.furrylightningrod.com:3001/api'
 const token = $.cookie('token')
 let ldata
 
