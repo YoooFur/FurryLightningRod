@@ -1,6 +1,8 @@
 html
   head
+    -if(env!='dev'){
     meta(http-equiv="Content-Security-Policy" content="upgrade-insecure-requests")
+    -}
     title= title
     include _includes/userCtrl
     link(rel="stylesheet", href="/stylesheets/log.css", attr)
