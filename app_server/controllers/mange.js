@@ -2,10 +2,12 @@
 const { response } = require('express')
 const { token } = require('morgan')
 const { render } = require('pug')
+const { renderPage } = require('./renderPage')
 const request = require('request')
 const auth = require('../controllers/auth')
-const apiOptions = {
-    server: require('../../config').APIURL
+const options = {
+    api: require('../../config').APIURL,
+    env: require('../../config').env
 }
 
 //渲染管理页面
@@ -14,7 +16,7 @@ const mange = (req, res) => {
     if(!req.cookies.token||req.user.group!='test-group'){
         res.status(404).render('error/404')
     }else{
-        res.render('mange',{
+        renderPage(req, res, 'mange',{
             title: '管理页面 - 约稿避雷辅助工具',
             userInfo: req.user
         })

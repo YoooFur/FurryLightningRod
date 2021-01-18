@@ -1,15 +1,16 @@
 //环境
 const { response } = require('express')
+const { renderPage } = require('./renderPage')
 const request = require('request')
-const apiOptions = {
-    server: require('../../config').APIURL
+const options = {
+    api: require('../../config').APIURL
 }
 
 
 //查询 请求
 const search = (req, res, resBody, enter) => {
     console.log(resBody)
-    res.render('search', {
+    renderPage(req, res,'search', {
         title: '查询 - 避雷针',
         enter: enter,
         resBody: resBody
@@ -25,7 +26,7 @@ const renderSearch = (req, res, enter) => {
         QQ = req.query.target
         searchAPI(req, res, 'query', enter)
     }else{
-    res.render('search', {
+    renderPage(req, res, 'search', {
         title: '查询 - 避雷针',
         enter: enter
     })}
@@ -44,7 +45,7 @@ const searchAPI = (req, res, mode, enter) =>{
     if(mode === 'params'){t_QQ=req.params.QQ}
     if(mode === 'query'){t_QQ=req.query.target}
     const requestOptions = {
-        url: apiOptions.server + requestPath,
+        url: options.api + requestPath,
         method: 'POST',
         json: { QQ: t_QQ }
     }
