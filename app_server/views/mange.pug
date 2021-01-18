@@ -22,7 +22,7 @@ block content
             tr
                 th#tQQ(scope="col") QQ
                 th#tName(scope="col") 名字
-                th#tLevel(scope="col") 等级
+                th#tLevel(scope="col") 级
                 th#tReason(scope="col") 原因
                 //- th#tReason(scope="col") 详情
                 th#Opreator(scope="col") 操作员
@@ -34,7 +34,7 @@ block content
             tr
                 th#tQQ(scope="col") QQ
                 th#tName(scope="col") 名字
-                th#tLevel(scope="col") 等级
+                th#tLevel(scope="col") 级
                 th#xq(scope="col") 详情
             tbody#ajm_data
     //-添加 模态框
@@ -122,3 +122,17 @@ block content
                         button.col-5.btn.btn-secondary(type="button" data-dismiss="modal") 关闭
                         button.col-5.btn.btn-primary(type="button" onclick="addOne('m')") 添加
                         .col-1
+    //- 分页
+    nav(aria-label="...")
+        ul.pagination
+            //- li.page-item.disabled
+            //-     span.page-link 首页
+            //- li.page-item
+            //-     a.page-link(onclick="toPage()") 1
+            //- li.page-item.active(aria-current="page")
+            //-     span.page-link 2
+            //-         span.sr-only (current)
+            //- li.page-item
+            //-     a.page-link 3
+            //- li.page-item
+            //-     a.page-link 末页

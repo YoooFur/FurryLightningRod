@@ -2,6 +2,10 @@
 
 const api_uri = 'https://api.furrylightningrod.com:29999/api'
 const token = $.cookie('token')
+let page = 1
+let pageCount = 0
+let limit = 12
+let itemCount = 0
 let ldata
 
 // 页面载入 请求数据
@@ -19,36 +23,63 @@ window.onload = function() {
         },
         success: function(datas) {
             ldata = datas
-            $(function () {
-                let tableHtml = ""
-                for(let i in datas){
-                    tableHtml += "<tr>"
-                    tableHtml +=    "<td>"+ datas[i].QQ +"</td>"
-                    tableHtml +=    "<td>"+ datas[i].name +"</td>"
-                    tableHtml +=    "<td>"+ datas[i].level +"</td>"
-                    tableHtml +=    "<td>"+ datas[i].reason +"</td>"
-                    // tableHtml +=    "<td>"+ datas[i].reason +"</td>"
-                    tableHtml +=    "<td>"+ datas[i].opreatorName +"</td>"
-                    // tableHtml +=    "<td>"+ datas[i]._id +"</td>"
-                    tableHtml += "</tr>"
-                }
-                $("#aj_data").html(tableHtml)
-            })
-            $(function () {
-                let tableHtml = ""
-                for(let i in datas){
-                    tableHtml += "<tr>"
-                    tableHtml +=    "<td>"+ datas[i].QQ +"</td>"
-                    tableHtml +=    "<td>"+ datas[i].name +"</td>"
-                    tableHtml +=    "<td>"+ datas[i].level +"</td>"
-                    tableHtml +=    "<td>"+ "<button class='btn btn-primary btn-xq' onclick='xq(" + i + ")'>详情</button>" + "</td>"
-                    tableHtml += "</tr>"
-                }
-                $("#ajm_data").html(tableHtml)
-            })
+            itemCount = datas.length
+            pageCount = Math.ceil(itemCount / limit)
+            renderTables(1)
+            // 加载页面导航
+            let pageNav = ""
+            for(i = 1; i<=pageCount; i++){
+                pageNav += "<li class='page-item' id='"+ i +"'>"
+                pageNav +=      "<a class='page-link' id='"+ i +"' onclick='toPage("+ i +")'>" + i + "</a>"
+                pageNav += "</li>"
+            }
+            $('ul.pagination').html(pageNav)
+            $('li#'+page).addClass('active')
         }
     })
     
+}
+
+// 装填表格数据
+function renderTables(page) {
+    count = limit * (page - 1)
+    let maxCount = 0
+    if (page===pageCount){maxCount=itemCount}
+    else {maxCount= limit * page}
+    $(function () {
+        let tableHtml = ""
+        for(count; count<maxCount; count++){
+            tableHtml += "<tr>"
+            tableHtml +=    "<td id='QQ'>"+ ldata[count].QQ +"</td>"
+            tableHtml +=    "<td id='name'>"+ ldata[count].name +"</td>"
+            tableHtml +=    "<td id='level'>"+ ldata[count].level +"</td>"
+            tableHtml +=    "<td id='reason'>"+ ldata[count].reason +"</td>"
+            // tableHtml +=    "<td id='reason'>"+ ldata[count].reason +"</td>"
+            tableHtml +=    "<td id='opreatorName'>"+ ldata[count].opreatorName +"</td>"
+            // tableHtml +=    "<td id='_id'>"+ ldata[count]._id +"</td>"
+            tableHtml += "</tr>"
+        }
+        $("#aj_data").html(tableHtml)
+    })
+    $(function () {
+        let tableHtml = ""
+        for(count; count<maxCount; count++){
+            tableHtml += "<tr>"
+            tableHtml +=    "<td>"+ ldata[count].QQ +"</td>"
+            tableHtml +=    "<td>"+ ldata[count].name +"</td>"
+            tableHtml +=    "<td>"+ ldata[count].level +"</td>"
+            tableHtml +=    "<td>"+ "<button class='btn btn-primary btn-xq' onclick='xq(" + count + ")'>详情</button>" + "</td>"
+            tableHtml += "</tr>"
+        }
+        $("#ajm_data").html(tableHtml)
+    })
+}
+
+// 翻页
+function toPage(page) {
+    $('li.page-item').removeClass('active')
+    renderTables(page)
+    $('li#'+page).addClass('active')
 }
 
 

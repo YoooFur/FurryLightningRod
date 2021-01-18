@@ -4,6 +4,21 @@ button {
 .row {
     align-items: center;
 }
+td#QQ {
+    width: 3rem;
+}
+td#name {
+    width: 6rem;
+}
+td#level {
+    width: 1rem;
+}
+td#reason {
+    width: auto;
+}
+td#opreatorName {
+    width: 6rem;
+}
 
 @media(max-width:1200px) {
 
