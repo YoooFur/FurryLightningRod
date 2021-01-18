@@ -46,6 +46,7 @@ function renderTables(page) {
     let maxCount = 0
     if (page===pageCount){maxCount=itemCount}
     else {maxCount= limit * page}
+    console.log(page)
     $(function () {
         let tableHtml = ""
         for(count; count<maxCount; count++){
@@ -60,6 +61,7 @@ function renderTables(page) {
             tableHtml += "</tr>"
         }
         $("#aj_data").html(tableHtml)
+        count = limit * (page - 1)
     })
     $(function () {
         let tableHtml = ""
@@ -72,6 +74,7 @@ function renderTables(page) {
             tableHtml += "</tr>"
         }
         $("#ajm_data").html(tableHtml)
+        count = limit * (page - 1)
     })
 }
 

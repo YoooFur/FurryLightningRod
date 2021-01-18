@@ -5,6 +5,7 @@ const ctrlMain = require('../controllers/main')
 const ctrlSearch = require('../controllers/search')
 const ctrlUser = require('../controllers/log')
 const ctrlMange = require('../controllers/mange')
+const ctrlDoc = require('../controllers/document')
 const auth = require('../controllers/auth').auth
 
 router.use(cookieParser())
@@ -13,6 +14,9 @@ router.use(cookieParser())
 router.get('/', auth, async(req, res) => {
     ctrlMain.index(req, res)
 })
+
+//帮助
+router.get('/help', ctrlDoc.help)
 
 //用户登录注册
 router.get('/login', ctrlUser.login)

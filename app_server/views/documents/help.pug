@@ -1,0 +1,7 @@
+extends ../layout
+block content
+    mixin output(docu)
+        - toString(docu)
+        div!= docu
+    <h3><i class="fa fa-angle-left btn-back" aria-hidden="true" onclick="location.href = '/'"></i>    帮助</h3>
+    +output(docu)

@@ -1,1 +1,51 @@
-h1 xd 页面找不到了
+extends ../layout
+block content
+    <h3><i class="fa fa-angle-left btn-back" aria-hidden="true" onclick="location.href = '/'"></i>    遇到错误了</h3>
+    hr
+    .alert.alert-danger(role="alert")
+        strong.alert-heading 404 页面找不到了
+        br
+        p#alert 请求地址：
+        code#alert-url
+        br
+        p#alert 如您点击的是举报页面或申诉页面，页面还在建设，如果需要举报或申诉，可以点击下方 “举报或申诉” 按钮。
+        br
+        p#alert 如您点击的并不是举报或申诉，建议您截图后点击 “反馈” 按钮。
+        br
+        .row
+            .col-6.col-lg-2
+                button.col-11.btn.btn-primary(onclick="report()") 举报或申诉
+            .col-6.col-lg-2
+                button.col-11.btn.btn-secondary(onclick="feedback()") 反馈
+    script.
+        window.onload = function() {
+            $('#alert-url').html(location.href)
+        }
+        function feedback() {
+            location.href = "https://qm.qq.com/cgi-bin/qm/qr?k=IdEeN3_GFAOPTTn_4kI3UOaa9WrVyB0a&jump_from=webapi"
+        }
+        function report() {
+            location.href = "http://wpa.qq.com/msgrd?v=3&uin=1285419578&site=qq&menu=yes"
+        }
+    style.
+        #alert, #alert-url {
+            font-size: 1.2rem;
+        }
+        .alert-heading {
+            font-size: 1.4rem;
+        }
+        button.btn {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+        @media(max-width:1200px){
+            #alert, #alert-url {
+                font-size: 3.5rem;
+            }
+            .alert-heading {
+                font-size: 5rem;
+            }
+            button.btn {
+                font-size: 3rem;
+            }
+        }

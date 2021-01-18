@@ -41,6 +41,21 @@ td#opreatorName {
     .btn-xq {
         font-size: 2.7rem;
     }
+
+    a.page-link {
+        font-size: 3rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .page-item:first-child .page-link {
+        border-top-left-radius: 1.25rem;
+        border-bottom-left-radius: 1.25rem;
+    }
+    .page-item:last-child .page-link {
+        border-top-right-radius: 1.25rem;
+        border-bottom-right-radius: 1.25rem;
+    }
+
 }
 
 td {

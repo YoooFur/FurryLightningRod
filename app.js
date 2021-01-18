@@ -3,9 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const { renderPage } = require('./app_server/controllers/renderPage')
+
 
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
+const { render } = require('pug');
+const { json } = require('express');
 
 var app = express();
 
@@ -24,8 +28,15 @@ app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  // next(createError(404));
+  res.status(404)
+  renderPage(req, res, 'error/404', {title:'啊哦，页面找不到了 - 约稿避雷辅助工具'})
 });
+
+
+// app.get('*',function (req,res) {
+//   res.send('404 not found',404);
+// });
 
 // error handler
 app.use(function(err, req, res, next) {
