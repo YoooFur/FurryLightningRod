@@ -29,7 +29,7 @@ const authb = async(req, res, next) => {
     const raw = String(req.headers.authorization).split(' ').pop()
     const { _id } = jwt.verify(raw, config.SECRET)
     req.user = await User.findById(_id)
-    if(req.user.group!='test-group'){res.status(403).send('Permission denied.(xd)')}
+    if(req.user.group!='test-group'&&req.user.group!='mange-painter'&&req.user.group!='manger'&&req.user.group!='admin'){res.status(403).send('Permission denied.(xd)')}
     else{next()}
 }
 
@@ -39,7 +39,7 @@ const authxb = async(req, res, next) => {
     const raw = req.body.token
     const { _id } = jwt.verify(raw, config.SECRET)
     req.user = await User.findById(_id)
-    if(req.user.group!='test-group'){res.status(403).send('Permission denied.(xd)')}
+    if(req.user.group!='test-group'&&req.user.group!='mange-painter'&&req.user.group!='manger'&&req.user.group!='admin'){res.status(403).send('Permission denied.(xd)')}
     else{next()}
 }
 

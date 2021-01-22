@@ -53,9 +53,23 @@ const BlackList = mongoose.model('BlackList', new mongoose.Schema({
     name: { type: String, required: true },
     level: { type: Number, required: true },
     reason: { type: String, required: true },
-    imagePath: { type: String },
+    imagePath: { type: JSON },
+    reportId: { type: Object },
     opreator: { type: Object, required:true },
     opreatorName: { type: String },
+    addDate: { type: Date, required: true }
+}))
+
+// reportlist集合 数据模型（所有举报数据
+const ReportList = mongoose.model('ReportList', new mongoose.Schema({
+    QQ: { type: String, unique: true, required:true },
+    status: { type: String, required: true },
+    name: { type: String, required: true },
+    reason: { type: String, required: true },
+    imagePath: { type: JSON },
+    reporter: { type: Object, required:true },
+    reporterName: { type: String },
+    blacklistId: { type: Object },
     addDate: { type: Date, required: true }
 }))
 
@@ -70,5 +84,6 @@ const VerifyCode = mongoose.model('VerifyCode', new mongoose.Schema({
 module.exports = {
     User,
     BlackList,
+    ReportList,
     VerifyCode
 }

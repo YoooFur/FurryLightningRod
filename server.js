@@ -2,27 +2,47 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
+const fs = require('fs')
 const jwt = require('jsonwebtoken')
 const config = require('./keys')
 
 // 载入控制器
 const userCtrl = require('./controllers/user')
 const listCtrl = require('./controllers/blacklist')
+const reportCtrl = require('./controllers/report')
 const sendCode = require('./controllers/mailcode')
 const uploadAvatar = require('./controllers/upload_avatar')
+const uploadImg = require('./controllers/upload_img')
 const middle = require('./controllers/middle')
 
-const port = 3001
+const port = 29998
 
 const app = express()
+
+// 上传内容大小限制
+app.use(bodyParser.json({limit: '10mb'}))
+app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
+
 app.use(express.json())
-//只要加入这个配置，则在 req 请求对象上会多出来一个属性 ：body
-//也就是说你就可以直接通过 req.body 来获取表单 POST 请求体数据了
+// 只要加入这个配置，则在 req 请求对象上会多出来一个属性 ：body
+// 也就是说你就可以直接通过 req.body 来获取表单 POST 请求体数据了
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(express.static('files'))
 
+// 判断上传目录是否存在
+fs.stat('./files/img',(err,stat)=>{
+    if(err){
+        fs.mkdir('./files/img',e=>{
+            //console.log(e)
+            console.log('上传目录创建成功')
+        })
+    }
+    else{
+        console.log('上传目录已存在')
+    }
+})
 
 // cors跨域配置
 app.all('*', function (req, res, next) {
@@ -101,6 +121,16 @@ app.post('/api/list/update/opreatorName', middle.authxb, async(req, res) => {
 app.delete('/api/list/clear', listCtrl.clear)
 
 
+//=============举报申诉操作=================
+
+
+
+// 举报
+app.post('/api/report/add', middle.authx, async(req, res) => {
+    reportCtrl.add(req, res)
+})
+
+
 
 //==============验证码操作==================
 
@@ -123,6 +153,14 @@ app.delete('/api/mail/clear', sendCode.del)
 // app.get('/api/test', async(req, res) => {
 //     console.log(req.cookies)
 // })
+
+
+
+//==============文件类操作===================
+
+
+// 上传多图
+app.post('/api/upload/img', uploadImg.upload_img)
 
 
 // 监听

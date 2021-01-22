@@ -1,4 +1,4 @@
-@url=http://192.168.31.245:3001/api
+@url=http://localhost:29998/api
 @json=Content-Type: application/json
 
 ### 查看所有用户
@@ -26,8 +26,8 @@ post {{url}}/login
 {{json}}
 
 {
-    "username": "93",
-    "password": "123456"
+    "username": "colour93",
+    "password": "aizaijixu789"
 }
 
 

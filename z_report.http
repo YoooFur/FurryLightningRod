@@ -1,0 +1,14 @@
+@url=http://localhost:29998/api
+@json=Content-Type: application/json
+
+
+### 举报
+post {{url}}/report/add
+{{json}}
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDAxOTlkYzJhNjViZDUwMDYwMmNmZTMiLCJpYXQiOjE2MTEyODk0NDV9.WXXrE0miQyy_KEVGSYFnpY2zJmTqGfKd5_GQxdD_lzc",
+    "QQ": "2811520355",
+    "name": "ces",
+    "reason": "test"
+}
