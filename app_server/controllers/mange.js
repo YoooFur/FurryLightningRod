@@ -13,7 +13,7 @@ const options = {
 //渲染管理页面
 const mange = (req, res) => {
     console.log(req.cookies)
-    if(!req.cookies.token||req.user.group!='test-group'){
+    if(!req.cookies.token||(req.user.group!='test-group'&&req.user.group!='mange-painter'&&req.user.group!='manger'&&req.user.group!='admin')){
         res.status(404).render('error/404')
     }else{
         renderPage(req, res, 'mange',{

@@ -6,6 +6,7 @@ const ctrlSearch = require('../controllers/search')
 const ctrlUser = require('../controllers/log')
 const ctrlMange = require('../controllers/mange')
 const ctrlDoc = require('../controllers/document')
+const ctrlReport = require('../controllers/report')
 const auth = require('../controllers/auth').auth
 
 router.use(cookieParser())
@@ -50,5 +51,10 @@ router.get('/model-search', function(req, res) {
     ctrlSearch.renderSearch(req, res, 'm')
 })
 // router.get('/model-search/:model-info', ctrlMain.search_api)
+
+//举报
+router.get('/report', auth, async(req, res) => {
+    ctrlReport.report(req, res)
+})
 
 module.exports = router;

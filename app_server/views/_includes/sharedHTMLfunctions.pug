@@ -6,6 +6,8 @@ mixin outputGroupName(group)
             p 游客
       -}if (group === "painter") {
             p 画师
+      -}if (group === "manger") {
+            p 审核成员
       -}if (group === "mange-painter") {
             p 审核画师
       -}if (group === "test-group") {
@@ -19,38 +21,55 @@ mixin outputGroupIntro(group)
             .alert.alert-info(role="alert")
                   strong.alert-heading 权限说明
                   p#alert 您拥有以下权限
-                  p#alert 查询 画师 的状态
-                  p#alert 查询 普通用户 的状态
-                  p#alert 提交对 画师 的举报
+                  p#alert 查询黑名单
+                  //- p#alert 查询 画师 的状态
+                  //- p#alert 查询 普通用户 的状态
+                  p#alert 提交举报
+                  //- p#alert 提交对 画师 的举报
                   p#alert 当 画师 处于黑名单时 可以查询有关事件
       -}if (group === "guest"){
             .alert.alert-primary(role="alert")
                   strong.alert-heading 权限说明
                   p#alert 您拥有以下权限
-                  p#alert 查询 画师 的状态
-                  p#alert 查询 普通用户 的状态
+                  p#alert 查询黑名单
+                  //- p#alert 查询 画师 的状态
+                  //- p#alert 查询 普通用户 的状态
       -}if (group === "painter"){
             .alert.alert-success(role="alert")
                   strong.alert-heading 权限说明
                   p#alert 您拥有以下权限
-                  p#alert 查询 画师 的状态
-                  p#alert 查询 普通用户 的状态
-                  p#alert 提交对 画师 的举报
-                  p#alert 提交对 普通用户 的举报
-                  p#alert 当 画师 处于黑名单时 可以查询有关事件
-                  p#alert 当 普通用户 处于黑名单或超过3次进入黑名单时 可以查询有关事件
+                  p#alert 查询黑名单
+                  p#alert 提交举报
+                  p#alert 申请成为审核画师
+                  //- p#alert 查询 画师 的状态
+                  //- p#alert 查询 普通用户 的状态
+                  //- p#alert 提交对 画师 的举报
+                  //- p#alert 提交对 普通用户 的举报
+                  //- p#alert 当 画师 处于黑名单时 可以查询有关事件
+                  //- p#alert 当 普通用户 处于黑名单或超过3次进入黑名单时 可以查询有关事件
+      -}if (group === "manger"){
+            .alert.alert-dark(role="alert")
+                  strong.alert-heading 权限说明
+                  p#alert 您拥有以下权限
+                  p#alert 对所提交的举报进行审核
+                  p#alert 对黑名单进行操作
+                  //- p#alert 查询 所有用户 详细事件
+                  //- p#alert 处理 举报 申请
+                  //- p#alert 提交对 黑名单 的操作申请
       -}if (group === "mange-painter"){
             .alert.alert-dark(role="alert")
                   strong.alert-heading 权限说明
                   p#alert 您拥有以下权限
-                  p#alert 查询 所有用户 详细事件
-                  p#alert 处理 举报 申请
-                  p#alert 提交对 黑名单 的操作申请
+                  p#alert 对所提交的举报进行审核
+                  p#alert 对黑名单进行操作
+                  //- p#alert 查询 所有用户 详细事件
+                  //- p#alert 处理 举报 申请
+                  //- p#alert 提交对 黑名单 的操作申请
       -}if (group === "test-group"){
             .alert.alert-dark(role="alert")
                   strong.alert-heading 权限说明
                   p#alert 您拥有以下权限
-                  p#alert 对 黑名单 的所有操作
+                  p#alert 对黑名单的所有操作
                   p#alert 再次感谢您对避雷针项目的支持与贡献
       -}if (group === "admin"){
             .alert.alert-dark(role="alert")
@@ -148,6 +167,11 @@ mixin outputSearchResult(data)
       - }}}
       
 mixin outputXbtn(group)
-      - if (group==="test-group"){
+      - if (group==="test-group"||group==="manger"||group==="mange-painter"||group==="admin"){
       button.btn.btn-success.btn-block.db#btn-x(onclick="t2mange()") 管理页面
+      - }
+
+mixin outputHbtn(group)
+      - if (group==="test-group"||group==="manger"||group==="mange-painter"||group==="admin"){
+      button.btn.btn-secondary.btn-block.db#btn-x(onclick="t2mangereport()") 处理审核
       - }

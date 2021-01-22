@@ -1,0 +1,36 @@
+extends ../layout
+block content
+    <h3><i class="fa fa-angle-left btn-back" aria-hidden="true" onclick="location.href = '/'"></i>    请先登录</h3>
+    hr
+    .alert.alert-danger(role="alert")
+        strong.alert-heading 若要完成该请求，请先登录。
+        br
+        .row
+            .col-6.col-lg-2
+                button.d-none.d-lg-block.col-11.btn.btn-primary(onclick="j2where('/login')") 登录
+                button.d-block.d-lg-none.col-11.btn.btn-primary(onclick="j2where('/mlogin')") 登录
+            .col-6.col-lg-2
+                button.d-none.d-lg-block.col-11.btn.btn-secondary(onclick="j2where('/register')") 注册
+                button.d-block.d-lg-none.col-11.btn.btn-secondary(onclick="j2where('/mregister')") 注册
+    style.
+        #alert, #alert-url {
+            font-size: 1.2rem;
+        }
+        .alert-heading {
+            font-size: 1.4rem;
+        }
+        button.btn {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+        @media(max-width:1200px){
+            #alert, #alert-url {
+                font-size: 3.5rem;
+            }
+            .alert-heading {
+                font-size: 5rem;
+            }
+            button.btn {
+                font-size: 3rem;
+            }
+        }
