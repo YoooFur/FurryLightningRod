@@ -1,5 +1,5 @@
 //举报申诉
-const api_uri = 'http://test.furrylightningrod.com:29998/api'
+const api_uri = 'https://api.furrylightningrod.com:29998/api'
 const token = $.cookie('token')
 let imgPath = {}
 
