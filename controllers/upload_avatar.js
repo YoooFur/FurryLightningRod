@@ -44,7 +44,7 @@ const upload = (req, res) => {
       //图片写入地址；
       var newPath = form.uploadDir + avatarName;
       //显示地址；
-      var showUrl = 'http://api.furrylightningrod.com:3001' + uploadPath + avatarName;
+      var showUrl = 'http://api.furrylightningrod.com:29999' + uploadPath + avatarName;
       console.log("newPath",newPath);
       fs.renameSync(files.avatar.path, newPath)  //重命名
       res.send({
