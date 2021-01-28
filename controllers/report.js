@@ -27,6 +27,7 @@ const add = (async(req, res) => {
                     status: 'pending',
                     name: req.body.name,
                     reason: req.body.reason,
+                    imagePath: req.body.imgPath,
                     reporter: req.user._id,
                     reporterName: req.user.nick,
                     addDate: new Date()

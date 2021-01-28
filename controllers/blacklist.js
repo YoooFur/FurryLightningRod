@@ -9,7 +9,10 @@ const config = require('../keys')
 
 // 枚举黑名单
 const listAll = (async(req, res) => {
-    const items = await BlackList.find()
+    let items = {}
+    items.items = await BlackList.find()
+    items.user = req.user
+    console.log(items)
     res.send(items)
 })
 

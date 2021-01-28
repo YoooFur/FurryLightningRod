@@ -1,9 +1,11 @@
-@url=http://localhost:3001/api
+@url=http://api.furrylightningrod.com:30001/api
+
 @json=Content-Type: application/json
 
 
 ### 列黑名单
 get {{url}}/list/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDEyNDFlMTAwMTBhYTZjMjAwZGFkNzIiLCJpYXQiOjE2MTE4NDgxODl9.V18QGmMOzVGJaYe3LdyoXykkYFgjJ2mvHGo5x_Gehyw
 
 ### 查黑名单
 post {{url}}/list

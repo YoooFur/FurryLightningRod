@@ -1,4 +1,5 @@
-@url=http://localhost:29998/api
+# @url=https://api.furrylightningrod.com:29999/api
+@url=http://localhost:30001/api
 @json=Content-Type: application/json
 
 ### 查看所有用户
@@ -27,11 +28,11 @@ post {{url}}/login
 
 {
     "username": "colour93",
-    "password": "aizaijixu789"
+    "password": "Aizaijixu789"
 }
 
 
 ### 个人信息
 get {{url}}/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZlNjI1MmU0NWI3YTFiNmI1ODQ2NDYiLCJpYXQiOjE2MTA1MDY4Mzl9.eBo72lhfnjfRmJBzWktA5K9udqfpKQcgovlfAdkvJC4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDEyNDFlMTAwMTBhYTZjMjAwZGFkNzIiLCJpYXQiOjE2MTE4NDgxODl9.V18QGmMOzVGJaYe3LdyoXykkYFgjJ2mvHGo5x_Gehyw
 

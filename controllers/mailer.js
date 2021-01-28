@@ -18,7 +18,7 @@ const mailSend = (user) => {
         }
     })
     const mailOptions = {
-        from: '"Furry 避雷针" <furrylightningrod@outlook.com>',
+        from: '"避雷针" <furrylightningrod@outlook.com>',
         to: toEmail,
         subject: '黑名单条目审核通知',
         html: '<head><style>*{font-family: "微软雅黑", "Microsoft Yahei", "苹方", "Pingfang SC";}</style></head><body><h3>避雷针</h3><p>尊敬的审核组用户'+user.nick+'，</p><p>您有一条新的待处理信息，<a href="http://test.furrylightningrod.com:29998/report/mange">点此查看</a><hr><p>如果您有好的建议或者反馈，请联系colour_93@furry.top<p>&copy; YoooFur+工作室 2020-2021'

@@ -56,7 +56,7 @@ const codeSend = async(req, res) => {
         }
     })
     const mailOptions = {
-        from: '"Furry 避雷针" <furrylightningrod@outlook.com>',
+        from: '"避雷针" <furrylightningrod@outlook.com>',
         to: toEmail,
         subject: '避雷针注册验证码',
         html: '<head><style>*{font-family: "微软雅黑", "Microsoft Yahei", "苹方", "Pingfang SC";}</style></head><body><h3>避雷针</h3><p>感谢您使用避雷针，以下是您的注册验证码：<strong>' + eCode.code + '</strong><p>如果您近期并没有注册避雷针，请忽略该邮件<hr><p>如果您有好的建议或者反馈，请联系colour_93@furry.top<p>&copy; YoooFur+工作室 2020-2021'
