@@ -30,10 +30,10 @@ block content
             //-         input.custom-file-input#imgUpload(type="file" aria-describedby="spanForImgUpload")
             //-         label.custom-file-label(for="imgUpload") 选择文件
         #upload
-            input#fileUpload(type="file" name="fileUpload" style="width:0;height:0;display:none!important")
+            input.d-none#fileUpload(type="file" name="fileUpload" style="width:0;height:0")
             button.btn.btn-outline-primary#fileOpenFolder
                 i.fa.fa-folder-open-o
-            button.btn.btn-outline-secondary#fileUploadAll
+            button.d-none.btn.btn-outline-secondary#fileUploadAll
                 i.fa.fa-upload
             .upload-container
                 ul#h5ImgUploadList

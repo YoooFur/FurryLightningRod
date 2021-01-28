@@ -9,7 +9,7 @@ const listenPort = 2998
 
 // API地址
 // const APIURL = 'api.deadlist.fun:29999'
-const APIURL = 'http://test.furrylightningrod.com:29998/api'
+const APIURL = 'http://test.furrylightningrod.com:30001/api'
 // const APIURL = 'http://localhost:3001/api'
 
 // 前端版本

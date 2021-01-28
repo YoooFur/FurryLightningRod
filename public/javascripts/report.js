@@ -1,5 +1,5 @@
 //举报申诉
-const api_uri = 'http://test.furrylightningrod.com:29998/api'
+const api_uri = 'http://test.furrylightningrod.com:30001/api'
 const token = $.cookie('token')
 let imgPath = {}
 
@@ -13,6 +13,7 @@ function addOne() {
     name = document.getElementById('name').value
     tag = document.getElementById('tag').value
     reason = document.getElementById('reason').value
+    $('button#fileUploadAll').click()
     $.ajax({
         url: api_uri+'/report/add',
         type: 'POST',
@@ -21,6 +22,7 @@ function addOne() {
             QQ: QQ,
             name: name,
             tag: tag,
+            imgPath: imgPath,
             reason: reason
         },
         error: function(XHR,TS) {

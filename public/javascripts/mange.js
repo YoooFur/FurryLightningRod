@@ -1,6 +1,7 @@
 // mange.js
 
-const api_uri = 'http://test.furrylightningrod.com:29998/api'
+// const api_uri = 'http://test.furrylightningrod.com:30001/api'
+const api_uri = 'http://test.furrylightningrod.com:30001/api'
 const token = $.cookie('token')
 let page = 1
 let pageCount = 0
@@ -15,15 +16,17 @@ window.onload = function() {
         url: api_uri+'/list/all',
         type: 'GET',
         beforeSend: function(xhr) { 
-            xhr.setRequestHeader("Authorization", "Bearer "+token);  
+            xhr.setRequestHeader("Authorization", "Bearer "+token); 
         },
         error: function(XHR,TS) {
             console.log(XHR)
 
         },
         success: function(datas) {
-            ldata = datas
-            itemCount = datas.length
+            ldata = datas.items
+            user = datas.user
+            watermark(user.nick,user.username,'避雷针FurryLightningRod')
+            itemCount = ldata.length
             pageCount = Math.ceil(itemCount / limit)
             renderTables(1)
             // 加载页面导航
@@ -37,7 +40,6 @@ window.onload = function() {
             $('li#'+page).addClass('active')
         }
     })
-    
 }
 
 // 装填表格数据
