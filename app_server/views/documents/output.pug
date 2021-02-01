@@ -1,0 +1,8 @@
+extends ../layout
+block content
+    mixin output(docu)
+        - toString(docu)
+        div!= docu
+    block content
+    
+    +output(docu)

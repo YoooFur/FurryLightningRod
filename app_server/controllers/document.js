@@ -25,7 +25,7 @@ const readMD =  (path) => {
 
 // 使用说明
 const help = async(req, res) => {
-    path = 'public/documents/HELP.md'
+    path = 'public/documents/帮助.md'
     let datas = {
         title: '帮助 - 约稿避雷辅助工具',
         docu: await readMD(path)
