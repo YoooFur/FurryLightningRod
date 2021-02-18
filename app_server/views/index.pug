@@ -7,14 +7,14 @@ block content
     .intro-box.col-lg-7
       h1.display-4 避雷针
       h5.lead 约稿避雷辅助工具
-      button.btn.btn-outline-primary.d-none.d-xl-block 了解详情
+      //- button.btn.btn-outline-primary.d-none.d-xl-block 了解详情
     //- 用户信息
     .userInfo-box.col-lg-5
       .jumbotron.row.shadow#userInfo.login-box.d-none
         .avatar.col-4
           +outputAvatar(userInfo.avatarPath)
         .intro.col-4#intro
-          strong#userName!= userInfo.nick
+          +outputNickName(userInfo.nick)
           p#userGroup 
             +outputGroupName(userInfo.group)
           p#zzz
@@ -37,9 +37,8 @@ block content
     div
       h3.d-none.d-xl-block 避雷查询
       .alert.alert-primary(role="alert")
-        strong.alert-heading 请注意
-        p#alert 您的登录状态将决定您的查询权限，即信息的显示详细程度。
-        p#alert 当您处于未登录状态时亦可查询，但将仅会显示最重要信息，并且每分钟查询次数将被限制。
+        strong.alert-heading 信息
+        p#alert 本工具主要功能是尽可能地减少甚至避免甲乙双方的各类损失，通过举报、审核、查询等的方式，尽可能地建设成为一个完善、数据量足够的黑名单系统，为圈子发展贡献一份力！
         strong#alert 如果您需要举报，请先登录。
       //- 查询表单
       .row.text-justify.align-items-center

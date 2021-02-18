@@ -13,7 +13,8 @@ function search(id) {
 
 function report(id) {
     const val = document.getElementById(id).value
-    window.location.href = '/report?target=' + val
+    // window.location.href = '/report?target=' + val
+    window.location.href = '/rep'
 }
 
 function logout() {

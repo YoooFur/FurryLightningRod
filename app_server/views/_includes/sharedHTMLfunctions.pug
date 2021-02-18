@@ -1,4 +1,10 @@
 
+mixin outputNickName(nick)
+      - let displayNick
+      - if (nick.length > 7) { displayNick = nick.substring(0,6) + "..." }
+      - else { displayNick = nick }
+      strong#userName!= displayNick
+
 mixin outputGroupName(group)
       - if (group === "normal") {
             p 普通用户
@@ -79,13 +85,13 @@ mixin outputGroupIntro(group)
             
    
 mixin outputAvatar(avatarPath)
-      - const aPath = "https://api.furrylightningrod.com:29999/avatar/" + avatarPath
-      - const bPath = "https://api.furrylightningrod.com:29999/avatar/hd/" + avatarPath
+      - const aPath = "http://test.furrylightningrod.com:30001/avatar/" + avatarPath
+      - const bPath = "http://test.furrylightningrod.com:30001/avatar/hd/" + avatarPath
       img.rounded-circle.img-fluid.shadow#avatar(src=aPath, alt="", srcset="")
 
 mixin outputAvatarHD(avatarPath)
-      - const aPath = "https://api.furrylightningrod.com:29999/avatar/" + avatarPath
-      - const bPath = "https://api.furrylightningrod.com:29999/avatar/hd/" + avatarPath
+      - const aPath = "http://test.furrylightningrod.com:30001/avatar/" + avatarPath
+      - const bPath = "http://test.furrylightningrod.com:30001/avatar/hd/" + avatarPath
       img.rounded-circle.img-fluid.shadow#profile-avatar(src=aPath, alt="", srcset="")
 
 mixin outputWelcome()

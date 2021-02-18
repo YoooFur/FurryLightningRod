@@ -11,6 +11,6 @@ window.onload = function() {
         $('button#btn-report').removeClass('disabled')
         $('button#btn-j2report').removeClass('disabled')
         $('button#btn-report').attr('onclick',"report('userQQInput1')")
-        $('button#btn-j2report').attr('onclick',"j2where('/report')")
+        $('button#btn-j2report').attr('onclick',"j2where('/rep')")
     }
 }
