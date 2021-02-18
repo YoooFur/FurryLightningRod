@@ -1,4 +1,4 @@
-const api_uri = 'http://test.furrylightningrod.com:30001/api'
+const api_uri = 'https://api.furrylightningrod.com:29999/api'
 
 function showEditAvatar() {
     $('form#editAvatar').removeClass('d-none')
