@@ -44,7 +44,7 @@ window.onload = function() {
 
 // 装填表格数据
 function renderTables(page) {
-    count = limit * (page - 1)
+    count = limit * (page - 1)  // TODO: 不建议在函数中声明和使用全局变量
     let maxCount = 0
     if (page===pageCount){maxCount=itemCount}
     else {maxCount= limit * page}
