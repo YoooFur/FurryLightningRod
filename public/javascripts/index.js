@@ -1,4 +1,12 @@
+// 建议在每条Javascript语句后面加分号，可以提高程序运行效率。
 window.onload = function() {
+    
+    //TODO: 可能会出现BUG的地方 -- 多次对同一个全局变量赋值，可能会出现值被覆盖的问题
+    // BUG解决：
+    let old_load = window.onload;
+    if (old_load)
+        old_load();
+    
     const token = document.cookie
     if(!token) {
         $('div.no-login-box').removeClass('d-none')
