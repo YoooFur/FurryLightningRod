@@ -5,7 +5,7 @@ let imgPath = {}
 
 //举报
 function addOne() {
-    let QQ
+    let QQ // TODO: 建议初始化变量
     let name
     let tag
     let reason

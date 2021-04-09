@@ -3,7 +3,7 @@ const api_uri = 'https://api.furrylightningrod.com:29999/api'
 function login() {
     const username = document.getElementById('username').value
     const password = document.getElementById('password').value
-    $('button').attr('disabled','true')
+    $('button').attr('disabled','true') //TODO: 直接在全局获取标签，可能会影响程序的扩展性（hmmm，挑刺XD）
     $.ajax({
         url: api_uri+'/login',
         type: 'POST',

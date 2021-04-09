@@ -54,7 +54,7 @@ $.fn.extend(
                     var reader = new FileReader()
                     reader.readAsDataURL(imgData)
                     reader.onload = function(){
-                        var $img = $('<li><img><i class="del fa fa-remove"></i></li>')
+                        var $img = $('<li><img><i class="del fa fa-remove"></i></li>') //TODO: 这里不建议写死，可以通过id查找或者通过className查找
                         $img.find('img').attr('src',this.result)
                         $('#h5ImgUploadList').append($img)
                         $img.on('load',function(){

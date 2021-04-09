@@ -7,7 +7,7 @@ let page = 1
 let pageCount = 0
 let limit = 12
 let itemCount = 0
-let ldata
+let ldata // TODO: 建议初始化变量
 
 // 页面载入 请求数据
 window.onload = function() {
