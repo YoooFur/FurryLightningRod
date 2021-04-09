@@ -40,7 +40,12 @@ block content
         button.btn.btn-danger(onclick="addOne()") 提交
     script(src="/javascripts/img_upload.js")
     script.
-        window.onload = function() {
+        window.onload = function() {  //TODO: 可能会出现BUG的地方 -- 多次对同一个全局变量赋值，可能会出现值被覆盖的问题
+            // BUG解决
+            let old_load = window.onload;
+            if (old_load)
+                old_load();
+
             let targetQQ = !{JSON.stringify(targetQQ)}
             if(targetQQ){$('input#QQ').attr('value',targetQQ)}
         }
